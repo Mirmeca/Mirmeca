@@ -18,6 +18,12 @@ class CommentTestCase: XCTestCase {
         return Mapper<Comment>().map(json)!
     }
     
+    func author() -> Author {
+        let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("author", ofType: "json")
+        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        return Mapper<Author>().map(json)!
+    }
+    
     func testID() {
         let comment = self.comment()
         XCTAssertEqual(comment.id!, 1, "Wrong ID")
@@ -63,5 +69,9 @@ class CommentTestCase: XCTestCase {
         XCTAssertEqual(comment.dateGmt!, "2015-07-27T10:50:05", "Wrong DateGmt")
     }
     
+    func testAuthor() {
+        let comment = self.comment()
+        XCTAssertEqual(comment.author!.id!, 0, "Wrong Author")
+    }
+    
 }
-

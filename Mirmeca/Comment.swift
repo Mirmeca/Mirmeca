@@ -16,6 +16,7 @@ public class Comment: Mappable {
     public var status: String?
     public var type: String?
     public var parent: Int?
+    public var author: Author?
     public var date: String?
     public var dateTz: String?
     public var dateGmt: String?
@@ -31,6 +32,7 @@ public class Comment: Mappable {
         status  <- map["status"]
         type    <- map["type"]
         parent  <- map["parent"]
+        author  <- map["author"]
         date    <- map["date"]
         dateTz  <- map["date_tz"]
         dateGmt <- map["date_gmt"]
