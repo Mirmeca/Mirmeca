@@ -10,6 +10,8 @@
 		4F6ECF691B6CA4600024A059 /* Mirmeca.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F6ECF681B6CA4600024A059 /* Mirmeca.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4F6ECF6F1B6CA4600024A059 /* Mirmeca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F6ECF631B6CA4600024A059 /* Mirmeca.framework */; };
 		4F6ECF761B6CA4600024A059 /* MirmecaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECF751B6CA4600024A059 /* MirmecaTests.swift */; };
+		50E173435561070EF6EDD330 /* Pods_MirmecaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64FCB171CAE7EE0BF0688749 /* Pods_MirmecaTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		96756BC631EA7DD15511F6DD /* Pods_Mirmeca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A73BD7F4C929A4A8E7DADD9 /* Pods_Mirmeca.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +25,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A73BD7F4C929A4A8E7DADD9 /* Pods_Mirmeca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mirmeca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35CDC2414BAF5F5B97CEB6AC /* Pods-Mirmeca.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirmeca.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mirmeca/Pods-Mirmeca.release.xcconfig"; sourceTree = "<group>"; };
 		4F6ECF631B6CA4600024A059 /* Mirmeca.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mirmeca.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6ECF671B6CA4600024A059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F6ECF681B6CA4600024A059 /* Mirmeca.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mirmeca.h; sourceTree = "<group>"; };
 		4F6ECF6E1B6CA4600024A059 /* MirmecaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MirmecaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6ECF741B6CA4600024A059 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F6ECF751B6CA4600024A059 /* MirmecaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirmecaTests.swift; sourceTree = "<group>"; };
+		5AE38F7A471D7C1BAFF364B4 /* Pods-Mirmeca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirmeca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirmeca/Pods-Mirmeca.debug.xcconfig"; sourceTree = "<group>"; };
+		64FCB171CAE7EE0BF0688749 /* Pods_MirmecaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirmecaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E553211585F656AC1FCF43D3 /* Pods-MirmecaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirmecaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MirmecaTests/Pods-MirmecaTests.release.xcconfig"; sourceTree = "<group>"; };
+		EF53E513CBAF5E44FE315D6F /* Pods-MirmecaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirmecaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MirmecaTests/Pods-MirmecaTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96756BC631EA7DD15511F6DD /* Pods_Mirmeca.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F6ECF6F1B6CA4600024A059 /* Mirmeca.framework in Frameworks */,
+				50E173435561070EF6EDD330 /* Pods_MirmecaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +66,8 @@
 				4F6ECF651B6CA4600024A059 /* Mirmeca */,
 				4F6ECF721B6CA4600024A059 /* MirmecaTests */,
 				4F6ECF641B6CA4600024A059 /* Products */,
+				B5397A83F9A86D9A84BE3E2D /* Pods */,
+				C01CC950EC17A6F079AA49CF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +114,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B5397A83F9A86D9A84BE3E2D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AE38F7A471D7C1BAFF364B4 /* Pods-Mirmeca.debug.xcconfig */,
+				35CDC2414BAF5F5B97CEB6AC /* Pods-Mirmeca.release.xcconfig */,
+				EF53E513CBAF5E44FE315D6F /* Pods-MirmecaTests.debug.xcconfig */,
+				E553211585F656AC1FCF43D3 /* Pods-MirmecaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C01CC950EC17A6F079AA49CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A73BD7F4C929A4A8E7DADD9 /* Pods_Mirmeca.framework */,
+				64FCB171CAE7EE0BF0688749 /* Pods_MirmecaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -120,10 +152,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F6ECF791B6CA4600024A059 /* Build configuration list for PBXNativeTarget "Mirmeca" */;
 			buildPhases = (
+				FED973CD310B0EC136D6EC66 /* Check Pods Manifest.lock */,
 				4F6ECF5E1B6CA4600024A059 /* Sources */,
 				4F6ECF5F1B6CA4600024A059 /* Frameworks */,
 				4F6ECF601B6CA4600024A059 /* Headers */,
 				4F6ECF611B6CA4600024A059 /* Resources */,
+				3479A3ADA195CE9E4442AC53 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4F6ECF7C1B6CA4600024A059 /* Build configuration list for PBXNativeTarget "MirmecaTests" */;
 			buildPhases = (
+				1E25F458A60FF1F22C3573A4 /* Check Pods Manifest.lock */,
 				4F6ECF6A1B6CA4600024A059 /* Sources */,
 				4F6ECF6B1B6CA4600024A059 /* Frameworks */,
 				4F6ECF6C1B6CA4600024A059 /* Resources */,
+				2AB26BA3FF5A45303E4CB957 /* Embed Pods Frameworks */,
+				50C184C5E0645E19A53B6B7D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +240,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E25F458A60FF1F22C3573A4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2AB26BA3FF5A45303E4CB957 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirmecaTests/Pods-MirmecaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3479A3ADA195CE9E4442AC53 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mirmeca/Pods-Mirmeca-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50C184C5E0645E19A53B6B7D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirmecaTests/Pods-MirmecaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FED973CD310B0EC136D6EC66 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F6ECF5E1B6CA4600024A059 /* Sources */ = {
@@ -322,6 +437,7 @@
 		};
 		4F6ECF7A1B6CA4600024A059 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AE38F7A471D7C1BAFF364B4 /* Pods-Mirmeca.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -337,6 +453,7 @@
 		};
 		4F6ECF7B1B6CA4600024A059 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35CDC2414BAF5F5B97CEB6AC /* Pods-Mirmeca.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -352,6 +469,7 @@
 		};
 		4F6ECF7D1B6CA4600024A059 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF53E513CBAF5E44FE315D6F /* Pods-MirmecaTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -369,6 +487,7 @@
 		};
 		4F6ECF7E1B6CA4600024A059 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E553211585F656AC1FCF43D3 /* Pods-MirmecaTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -399,6 +518,7 @@
 				4F6ECF7B1B6CA4600024A059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F6ECF7C1B6CA4600024A059 /* Build configuration list for PBXNativeTarget "MirmecaTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +527,7 @@
 				4F6ECF7E1B6CA4600024A059 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
