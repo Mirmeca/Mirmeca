@@ -1,0 +1,212 @@
+[
+    {
+        "ID": 1,
+        "title": "Hello world!",
+        "status": "publish",
+        "type": "post",
+        "author": {
+            "ID": 1,
+            "username": "root",
+            "name": "root",
+            "first_name": "",
+            "last_name": "",
+            "nickname": "root",
+            "slug": "root",
+            "URL": "",
+            "avatar": "http://1.gravatar.com/avatar/",
+            "description": "",
+            "registered": "2015-07-27T10:50:05+00:00",
+            "meta": {
+                "links": {
+                    "self": "http://localhost:8888/wp-json/users/1",
+                    "archives": "http://localhost:8888/wp-json/users/1/posts"
+                }
+            }
+        },
+        "content": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</p>\n",
+        "parent": null,
+        "link": "http://localhost:8888/2015/07/27/hello-world/",
+        "date": "2015-07-27T10:50:05",
+        "modified": "2015-08-01T06:08:16",
+        "format": "standard",
+        "slug": "hello-world",
+        "guid": "http://localhost:8888/?p=1",
+        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</p>\n",
+        "menu_order": 0,
+        "comment_status": "open",
+        "ping_status": "open",
+        "sticky": false,
+        "date_tz": "UTC",
+        "date_gmt": "2015-07-27T10:50:05",
+        "modified_tz": "UTC",
+        "modified_gmt": "2015-08-01T06:08:16",
+        "meta": {
+            "links": {
+                "self": "http://localhost:8888/wp-json/posts/1",
+                "author": "http://localhost:8888/wp-json/users/1",
+                "collection": "http://localhost:8888/wp-json/posts",
+                "replies": "http://localhost:8888/wp-json/posts/1/comments",
+                "version-history": "http://localhost:8888/wp-json/posts/1/revisions"
+            }
+        },
+        "featured_image": {
+            "ID": 7085,
+            "title": "hello-world",
+            "status": "inherit",
+            "type": "attachment",
+            "author": {
+                "ID": 1,
+                "username": "root",
+                "name": "root",
+                "first_name": "",
+                "last_name": "",
+                "nickname": "root",
+                "slug": "root",
+                "URL": "",
+                "avatar": "http://1.gravatar.com/avatar/",
+                "description": "",
+                "registered": "2015-07-27T10:50:05+00:00",
+                "meta": {
+                    "links": {
+                        "self": "http://localhost:8888/wp-json/users/1",
+                        "archives": "http://localhost:8888/wp-json/users/1/posts"
+                    }
+                }
+            },
+            "content": "<p class=\"attachment\"><a href='http://localhost:8888/wp-content/uploads/2015/07/hello-world.jpg'><img width=\"300\" height=\"156\" src=\"http://localhost:8888/wp-content/uploads/2015/07/hello-world-300x156.jpg\" class=\"attachment-medium\" alt=\"Hello World visualisation\" /></a></p>\n<p>Just some Hello World image.</p>\n",
+            "parent": 1,
+            "link": "http://localhost:8888/2015/07/27/hello-world/hello-world-2/",
+            "date": "2015-08-01T06:07:12",
+            "modified": "2015-08-01T06:07:57",
+            "format": "standard",
+            "slug": "hello-world-2",
+            "guid": "http://localhost:8888/wp-content/uploads/2015/07/hello-world.jpg",
+            "excerpt": "<p>Hello World visualisation</p>\n",
+            "menu_order": 0,
+            "comment_status": "open",
+            "ping_status": "open",
+            "sticky": false,
+            "date_tz": "UTC",
+            "date_gmt": "2015-08-01T06:07:12",
+            "modified_tz": "UTC",
+            "modified_gmt": "2015-08-01T06:07:57",
+            "meta": {
+                "links": {
+                    "self": "http://localhost:8888/wp-json/media/7085",
+                    "author": "http://localhost:8888/wp-json/users/1",
+                    "collection": "http://localhost:8888/wp-json/media",
+                    "replies": "http://localhost:8888/wp-json/media/7085/comments",
+                    "version-history": "http://localhost:8888/wp-json/media/7085/revisions",
+                    "up": "http://localhost:8888/wp-json/media/1"
+                }
+            },
+            "terms": [],
+            "source": "http://localhost:8888/wp-content/uploads/2015/07/hello-world.jpg",
+            "is_image": true,
+            "attachment_meta": {
+                "width": 675,
+                "height": 350,
+                "file": "2015/07/hello-world.jpg",
+                "sizes": {
+                    "thumbnail": {
+                        "file": "hello-world-150x150.jpg",
+                        "width": 150,
+                        "height": 150,
+                        "mime-type": "image/jpeg",
+                        "url": "http://localhost:8888/wp-content/uploads/2015/07/hello-world-150x150.jpg"
+                    },
+                    "medium": {
+                        "file": "hello-world-300x156.jpg",
+                        "width": 300,
+                        "height": 156,
+                        "mime-type": "image/jpeg",
+                        "url": "http://localhost:8888/wp-content/uploads/2015/07/hello-world-300x156.jpg"
+                    }
+                },
+                "image_meta": {
+                    "aperture": 0,
+                    "credit": "",
+                    "camera": "",
+                    "caption": "",
+                    "created_timestamp": 0,
+                    "copyright": "",
+                    "focal_length": 0,
+                    "iso": 0,
+                    "shutter_speed": 0,
+                    "title": "",
+                    "orientation": 0
+                }
+            }
+        },
+        "terms": {
+            "post_tag": [
+                {
+                    "ID": 379,
+                    "name": "hello world",
+                    "slug": "hello-world",
+                    "description": "",
+                    "taxonomy": "post_tag",
+                    "parent": null,
+                    "count": 1,
+                    "link": "http://localhost:8888/tag/hello-world/",
+                    "meta": {
+                        "links": {
+                            "collection": "http://localhost:8888/wp-json/taxonomies/post_tag/terms",
+                            "self": "http://localhost:8888/wp-json/taxonomies/post_tag/terms/379"
+                        }
+                    }
+                },
+                {
+                    "ID": 380,
+                    "name": "NSSomething",
+                    "slug": "nssomething",
+                    "description": "",
+                    "taxonomy": "post_tag",
+                    "parent": null,
+                    "count": 1,
+                    "link": "http://localhost:8888/tag/nssomething/",
+                    "meta": {
+                        "links": {
+                            "collection": "http://localhost:8888/wp-json/taxonomies/post_tag/terms",
+                            "self": "http://localhost:8888/wp-json/taxonomies/post_tag/terms/380"
+                        }
+                    }
+                }
+            ],
+            "category": [
+                {
+                    "ID": 378,
+                    "name": "iOS",
+                    "slug": "ios",
+                    "description": "",
+                    "taxonomy": "category",
+                    "parent": null,
+                    "count": 1,
+                    "link": "http://localhost:8888/category/ios/",
+                    "meta": {
+                        "links": {
+                            "collection": "http://localhost:8888/wp-json/taxonomies/category/terms",
+                            "self": "http://localhost:8888/wp-json/taxonomies/category/terms/378"
+                        }
+                    }
+                },
+                {
+                    "ID": 377,
+                    "name": "WordPress",
+                    "slug": "wordpress",
+                    "description": "",
+                    "taxonomy": "category",
+                    "parent": null,
+                    "count": 1,
+                    "link": "http://localhost:8888/category/wordpress/",
+                    "meta": {
+                        "links": {
+                            "collection": "http://localhost:8888/wp-json/taxonomies/category/terms",
+                            "self": "http://localhost:8888/wp-json/taxonomies/category/terms/377"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+]

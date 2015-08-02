@@ -12,7 +12,8 @@ import XCTest
 class PostGatewayTestCase: XCTestCase {
     
     func envSetUp() {
-        let envs = ["test": "https://gist.githubusercontent.com/solal/a648d268da09d245f221/raw/b064c7e84712223bf5c53b4cd763f916ad856753/"]
+        let path = NSBundle(identifier: "com.Mirmeca")!.resourcePath
+        let envs = ["test": "file://\(path!)"]
         EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "test")
     }
     
@@ -20,7 +21,7 @@ class PostGatewayTestCase: XCTestCase {
         let loadedExpectation = expectationWithDescription("Get a single post")
         self.envSetUp()
         
-        PostGateway(endpoint: "mirmeca-post-1", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+        PostGateway(endpoint: "post.json", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
             if (error != nil) {
                 XCTFail("Call to get single post returned an error")
             } else {
@@ -40,7 +41,7 @@ class PostGatewayTestCase: XCTestCase {
         let loadedExpectation = expectationWithDescription("Get an error for a single post")
         self.envSetUp()
         
-        PostGateway(endpoint: "mirmeca-post-2", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+        PostGateway(endpoint: "post-y.json", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
             if (error != nil) {
                 XCTAssertNotNil(error!, "Error should not be nil")
             } else {
