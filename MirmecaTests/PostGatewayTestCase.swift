@@ -25,8 +25,8 @@ class PostGatewayTestCase: XCTestCase {
             if (error != nil) {
                 XCTFail("Call to get single post returned an error")
             } else {
-                let loadedPost = value as! Post
-                XCTAssertEqual(loadedPost.id!, 1, "Did not fetch the proper post ID")
+                let post = value as! Post
+                XCTAssertEqual(post.id!, 1, "Did not fetch the proper post ID")
             }
             
             loadedExpectation.fulfill()

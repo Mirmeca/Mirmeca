@@ -25,8 +25,8 @@ class PostsGatewayTestCase: XCTestCase {
             if (error != nil) {
                 XCTFail("Call to get a list of posts returned an error")
             } else {
-                let loadedPosts = value as! [Post]
-                XCTAssertEqual(loadedPosts.count, 1, "Did not fetch the proper number of posts")
+                let posts = value as! [Post]
+                XCTAssertEqual(posts.count, 1, "Did not fetch the proper number of posts")
             }
             
             loadedExpectation.fulfill()
