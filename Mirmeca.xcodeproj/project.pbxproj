@@ -61,6 +61,9 @@
 		4F6ECFDD1B6E24940024A059 /* TermGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFDC1B6E24940024A059 /* TermGateway.swift */; };
 		4F6ECFDE1B6E24940024A059 /* TermGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFDC1B6E24940024A059 /* TermGateway.swift */; };
 		4F6ECFE01B6E24E40024A059 /* TermGatewayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFDF1B6E24E40024A059 /* TermGatewayTestCase.swift */; };
+		4F6ECFE21B6E26280024A059 /* CommentGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFE11B6E26280024A059 /* CommentGateway.swift */; };
+		4F6ECFE41B6E26740024A059 /* CommentGatewayTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFE31B6E26740024A059 /* CommentGatewayTestCase.swift */; };
+		4F6ECFE51B6E26780024A059 /* CommentGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFE11B6E26280024A059 /* CommentGateway.swift */; };
 		50E173435561070EF6EDD330 /* Pods_MirmecaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64FCB171CAE7EE0BF0688749 /* Pods_MirmecaTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		96756BC631EA7DD15511F6DD /* Pods_Mirmeca.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A73BD7F4C929A4A8E7DADD9 /* Pods_Mirmeca.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -115,6 +118,8 @@
 		4F6ECFD91B6E234E0024A059 /* posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = posts.json; sourceTree = "<group>"; };
 		4F6ECFDC1B6E24940024A059 /* TermGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermGateway.swift; sourceTree = "<group>"; };
 		4F6ECFDF1B6E24E40024A059 /* TermGatewayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermGatewayTestCase.swift; sourceTree = "<group>"; };
+		4F6ECFE11B6E26280024A059 /* CommentGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentGateway.swift; sourceTree = "<group>"; };
+		4F6ECFE31B6E26740024A059 /* CommentGatewayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentGatewayTestCase.swift; sourceTree = "<group>"; };
 		5AE38F7A471D7C1BAFF364B4 /* Pods-Mirmeca.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mirmeca.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mirmeca/Pods-Mirmeca.debug.xcconfig"; sourceTree = "<group>"; };
 		64FCB171CAE7EE0BF0688749 /* Pods_MirmecaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirmecaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E553211585F656AC1FCF43D3 /* Pods-MirmecaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirmecaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MirmecaTests/Pods-MirmecaTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +250,7 @@
 				4F6ECFCE1B6E0B910024A059 /* PostGateway.swift */,
 				4F6ECFD41B6E1FE20024A059 /* PostsGateway.swift */,
 				4F6ECFDC1B6E24940024A059 /* TermGateway.swift */,
+				4F6ECFE11B6E26280024A059 /* CommentGateway.swift */,
 			);
 			name = Gateways;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				4F6ECFD11B6E0BBD0024A059 /* PostGatewayTestCase.swift */,
 				4F6ECFD71B6E203E0024A059 /* PostsGatewayTestCase.swift */,
 				4F6ECFDF1B6E24E40024A059 /* TermGatewayTestCase.swift */,
+				4F6ECFE31B6E26740024A059 /* CommentGatewayTestCase.swift */,
 			);
 			name = Gateways;
 			sourceTree = "<group>";
@@ -488,6 +495,7 @@
 				4F6ECFD51B6E1FE20024A059 /* PostsGateway.swift in Sources */,
 				4F6ECFC91B6DFF210024A059 /* EnvManager.swift in Sources */,
 				4F6ECFDD1B6E24940024A059 /* TermGateway.swift in Sources */,
+				4F6ECFE21B6E26280024A059 /* CommentGateway.swift in Sources */,
 				4F6ECF831B6CA6F10024A059 /* Post.swift in Sources */,
 				4F6ECF901B6CB64B0024A059 /* Comment.swift in Sources */,
 				4F6ECFA21B6CBE850024A059 /* Author.swift in Sources */,
@@ -514,11 +522,13 @@
 				4F6ECFCD1B6E05C80024A059 /* EnvManagerTestCase.swift in Sources */,
 				4F6ECFD01B6E0B910024A059 /* PostGateway.swift in Sources */,
 				4F6ECFA31B6CBE850024A059 /* Author.swift in Sources */,
+				4F6ECFE41B6E26740024A059 /* CommentGatewayTestCase.swift in Sources */,
 				4F6ECF841B6CA6F10024A059 /* Post.swift in Sources */,
 				4F6ECFA01B6CBBCF0024A059 /* TermTestCase.swift in Sources */,
 				4F6ECFD61B6E1FE20024A059 /* PostsGateway.swift in Sources */,
 				4F6ECF881B6CA84B0024A059 /* PostTestCase.swift in Sources */,
 				4F6ECF911B6CB64B0024A059 /* Comment.swift in Sources */,
+				4F6ECFE51B6E26780024A059 /* CommentGateway.swift in Sources */,
 				4F6ECFBB1B6CC8B90024A059 /* AttachmentMetaTestCase.swift in Sources */,
 				4F6ECFA81B6CC0C40024A059 /* AuthorTestCase.swift in Sources */,
 				4F6ECFC31B6D8ED90024A059 /* FeaturedImageTestCase.swift in Sources */,
