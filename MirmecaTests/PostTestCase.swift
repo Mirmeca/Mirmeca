@@ -20,7 +20,7 @@ class PostTestCase: XCTestCase {
     
     func testID() {
         let post = self.post()
-        XCTAssertEqual(post.ID!, 1, "Wrong ID")
+        XCTAssertEqual(post.id!, 1, "Wrong ID")
     }
     
     func testTitle() {
@@ -123,5 +123,29 @@ class PostTestCase: XCTestCase {
         XCTAssertEqual(post.modifiedGmt!, "2015-08-01T06:08:16", "Wrong Modified Gmt")
     }
     
+    func testAuthor() {
+        let post = self.post()
+        XCTAssertEqual(post.author!.id!, 1, "Wrong Author")
+    }
+    
+    func testFeaturedImage() {
+        let post = self.post()
+        XCTAssertEqual(post.featuredImage!.id!, 7085, "Wrong Featured Image")
+    }
+    
+    func testCategories() {
+        let post = self.post()
+        XCTAssertEqual(post.categories!.count, 2, "Wrong number of Categories")
+    }
+    
+    func testTags() {
+        let post = self.post()
+        XCTAssertEqual(post.tags!.count, 2, "Wrong number of Tags")
+    }
+    
+    func testFeaturedImageUrl() {
+        let post = self.post()
+        XCTAssertEqual(post.featuredImageUrl, NSURL(string: "http://localhost:8888/wp-content/uploads/2015/07/hello-world.jpg")!, "Wrong Featured Image URL")
+    }
     
 }

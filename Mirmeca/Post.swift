@@ -10,10 +10,11 @@ import ObjectMapper
 
 public class Post: Mappable {
     
-    public var ID: Int?
+    public var id: Int?
     public var title: String?
     public var status: String?
     public var type: String?
+    public var author: Author?
     public var content: String?
     public var parent: Int?
     public var link: String?
@@ -31,16 +32,29 @@ public class Post: Mappable {
     public var dateGmt: String?
     public var modifiedTz: String?
     public var modifiedGmt: String?
+    public var featuredImage: FeaturedImage?
+    public var categories: [Term]?
+    public var tags: [Term]?
+    public var featuredImageUrl: NSURL {
+        get {
+            if self.featuredImage != nil {
+                return NSURL(string: self.featuredImage!.guid!)!
+            } else {
+                return NSURL(string: "")!
+            }
+        }
+    }
     
     public class func newInstance() -> Mappable {
         return Post()
     }
     
     public func mapping(map: Map) {
-        ID             <- map["ID"]
+        id             <- map["ID"]
         title          <- map["title"]
         status         <- map["status"]
         type           <- map["type"]
+        author         <- map["author"]
         content        <- map["content"]
         parent         <- map["parent"]
         link           <- map["link"]
@@ -58,6 +72,9 @@ public class Post: Mappable {
         dateGmt        <- map["date_gmt"]
         modifiedTz     <- map["modified_tz"]
         modifiedGmt    <- map["modified_gmt"]
+        featuredImage  <- map["featured_image"]
+        categories     <- map["terms.category"]
+        tags           <- map["terms.post_tag"]
     }
     
 }
