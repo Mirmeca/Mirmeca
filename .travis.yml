@@ -12,6 +12,6 @@ env:
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - pod intsall
+  - pod install
 
 script: $SCRIPT
