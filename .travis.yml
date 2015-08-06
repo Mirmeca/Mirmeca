@@ -1,4 +1,7 @@
 language: objective-c
 xcode_workspace: Mirmeca.xcworkspace
 xcode_scheme: MirmecaTests
-before_install: gem install cocoapods -v '= 0.38.0'
+before_install:
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - gem install cocoapods -v '= 0.38.0'
