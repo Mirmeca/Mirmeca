@@ -1,3 +1,4 @@
 language: objective-c
 xcode_workspace: Mirmeca.xcworkspace
 xcode_scheme: MirmecaTests
+before_install: gem install cocoapods -v '= 0.38.0'
