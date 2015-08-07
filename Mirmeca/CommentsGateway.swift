@@ -9,16 +9,16 @@
 import Alamofire
 import ObjectMapper
 
-struct CommentsGateway: GatewayProtocol {
+public struct CommentsGateway: GatewayProtocol {
     
     private var url: String?
     
-    init(endpoint: String, env: String?) {
-        let env = EnvManager.sharedInstance.getEnv(env)
+    public init(endpoint: String, env: String?) {
+        let env = MirmecaEnv.sharedInstance.getEnv(env)
         self.url = "\(env)/\(endpoint)"
     }
     
-    func request(completion: (value: AnyObject?, error: NSError?) -> Void) {
+    public func request(completion: (value: AnyObject?, error: NSError?) -> Void) {
         Alamofire.request(.GET, self.url!).responseJSON { (_, _, JSON, _) in
             var value: [Comment]?
             var error: NSError?
