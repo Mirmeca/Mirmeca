@@ -17,7 +17,7 @@ class PostsGatewayTestCase: XCTestCase {
         MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "test")
     }
     
-    func testGetSinglePost() {
+    func testGetPostsList() {
         let loadedExpectation = expectationWithDescription("Get a list of posts")
         self.envSetUp()
         
@@ -37,7 +37,7 @@ class PostsGatewayTestCase: XCTestCase {
         })
     }
     
-    func testGetSinglePostError() {
+    func testGetsListError() {
         let loadedExpectation = expectationWithDescription("Get an error for a single post")
         self.envSetUp()
         
