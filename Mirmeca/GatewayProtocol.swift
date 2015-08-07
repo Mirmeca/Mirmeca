@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GatewayProtocol {
+public protocol GatewayProtocol {
     
     init(endpoint: String, env: String?)
     func request(completion: (value: AnyObject?, error: NSError?) -> Void)

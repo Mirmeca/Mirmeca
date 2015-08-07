@@ -13,26 +13,26 @@ class EnvManagerTestCase: XCTestCase {
     
     func testEnvSetup() {
         let envs = ["dev": "http://localhost:8888/wp-json"]
-        EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
-        XCTAssertEqual(EnvManager.sharedInstance.getEnv(nil), "http://localhost:8888/wp-json", "Unknown env was set")
+        MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
+        XCTAssertEqual(MirmecaEnv.sharedInstance.getEnv(nil), "http://localhost:8888/wp-json", "Unknown env was set")
     }
     
     func testEnvSetupWithUnknownEnv() {
         let envs = ["dev": "http://localhost:8888/wp-json"]
-        EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "staging")
-        XCTAssertEqual(EnvManager.sharedInstance.getEnv(nil), "", "Env should be empty string")
+        MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "staging")
+        XCTAssertEqual(MirmecaEnv.sharedInstance.getEnv(nil), "", "Env should be empty string")
     }
     
     func testGetEnv() {
         let envs = ["dev": "http://localhost:8888/wp-json", "staging": "http://staging.example.com/wp-json"]
-        EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
-        XCTAssertEqual(EnvManager.sharedInstance.getEnv("staging"), "http://staging.example.com/wp-json", "Unknown env was requested")
+        MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
+        XCTAssertEqual(MirmecaEnv.sharedInstance.getEnv("staging"), "http://staging.example.com/wp-json", "Unknown env was requested")
     }
     
     func testGetEnvWithUnknownEnv() {
         let envs = ["dev": "http://localhost:8888/wp-json"]
-        EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
-        XCTAssertEqual(EnvManager.sharedInstance.getEnv("prod"), "", "Env should be empty string")
+        MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
+        XCTAssertEqual(MirmecaEnv.sharedInstance.getEnv("prod"), "", "Env should be empty string")
     }
 
 }

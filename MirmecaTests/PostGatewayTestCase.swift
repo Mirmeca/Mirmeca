@@ -14,7 +14,7 @@ class PostGatewayTestCase: XCTestCase {
     func envSetUp() {
         let path = NSBundle(identifier: "com.Mirmeca")!.resourcePath
         let envs = ["test": "file://\(path!)"]
-        EnvManager.sharedInstance.defineEnvs(envs, defaultEnv: "test")
+        MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "test")
     }
     
     func testGetSinglePost() {

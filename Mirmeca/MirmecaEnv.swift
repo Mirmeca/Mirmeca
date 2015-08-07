@@ -1,5 +1,5 @@
 //
-//  EnvManager.swift
+//  MirmecaEnv.swift
 //  Mirmeca
 //
 //  Created by solal on 2/08/2015.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class EnvManager {
+public class MirmecaEnv {
     
-    static let sharedInstance = EnvManager()
+    public static let sharedInstance = MirmecaEnv()
     
     private var envList: Dictionary<String, String>?
     private var setEnv: String?

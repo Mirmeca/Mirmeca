@@ -47,8 +47,8 @@
 		4F6ECFC31B6D8ED90024A059 /* FeaturedImageTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC21B6D8ED90024A059 /* FeaturedImageTestCase.swift */; };
 		4F6ECFC51B6DFE710024A059 /* GatewayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC41B6DFE710024A059 /* GatewayProtocol.swift */; };
 		4F6ECFC61B6DFE710024A059 /* GatewayProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC41B6DFE710024A059 /* GatewayProtocol.swift */; };
-		4F6ECFC91B6DFF210024A059 /* EnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC81B6DFF210024A059 /* EnvManager.swift */; };
-		4F6ECFCA1B6DFF210024A059 /* EnvManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC81B6DFF210024A059 /* EnvManager.swift */; };
+		4F6ECFC91B6DFF210024A059 /* MirmecaEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC81B6DFF210024A059 /* MirmecaEnv.swift */; };
+		4F6ECFCA1B6DFF210024A059 /* MirmecaEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFC81B6DFF210024A059 /* MirmecaEnv.swift */; };
 		4F6ECFCD1B6E05C80024A059 /* EnvManagerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFCB1B6E05C80024A059 /* EnvManagerTestCase.swift */; };
 		4F6ECFCF1B6E0B910024A059 /* PostGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFCE1B6E0B910024A059 /* PostGateway.swift */; };
 		4F6ECFD01B6E0B910024A059 /* PostGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6ECFCE1B6E0B910024A059 /* PostGateway.swift */; };
@@ -119,7 +119,7 @@
 		4F6ECFBF1B6D8EAC0024A059 /* featuredImage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = featuredImage.json; sourceTree = "<group>"; };
 		4F6ECFC21B6D8ED90024A059 /* FeaturedImageTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedImageTestCase.swift; sourceTree = "<group>"; };
 		4F6ECFC41B6DFE710024A059 /* GatewayProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GatewayProtocol.swift; sourceTree = "<group>"; };
-		4F6ECFC81B6DFF210024A059 /* EnvManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvManager.swift; sourceTree = "<group>"; };
+		4F6ECFC81B6DFF210024A059 /* MirmecaEnv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MirmecaEnv.swift; sourceTree = "<group>"; };
 		4F6ECFCB1B6E05C80024A059 /* EnvManagerTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvManagerTestCase.swift; sourceTree = "<group>"; };
 		4F6ECFCE1B6E0B910024A059 /* PostGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGateway.swift; sourceTree = "<group>"; };
 		4F6ECFD11B6E0BBD0024A059 /* PostGatewayTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostGatewayTestCase.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6ECF681B6CA4600024A059 /* Mirmeca.h */,
-				4F6ECFC81B6DFF210024A059 /* EnvManager.swift */,
+				4F6ECFC81B6DFF210024A059 /* MirmecaEnv.swift */,
 				4F6ECFC71B6DFE760024A059 /* Gateways */,
 				4F6ECF851B6CA8300024A059 /* Models */,
 				4F6ECF661B6CA4600024A059 /* Supporting Files */,
@@ -519,7 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F6ECFD51B6E1FE20024A059 /* PostsGateway.swift in Sources */,
-				4F6ECFC91B6DFF210024A059 /* EnvManager.swift in Sources */,
+				4F6ECFC91B6DFF210024A059 /* MirmecaEnv.swift in Sources */,
 				4F6ECFDD1B6E24940024A059 /* TermGateway.swift in Sources */,
 				4F6ECFE21B6E26280024A059 /* CommentGateway.swift in Sources */,
 				4F6ECF831B6CA6F10024A059 /* Post.swift in Sources */,
@@ -569,7 +569,7 @@
 				4F6ECFD21B6E0BBD0024A059 /* PostGatewayTestCase.swift in Sources */,
 				4F6ECF9A1B6CBA230024A059 /* Term.swift in Sources */,
 				4F6ECFAC1B6CC5DF0024A059 /* AttachmentSizeTestCase.swift in Sources */,
-				4F6ECFCA1B6DFF210024A059 /* EnvManager.swift in Sources */,
+				4F6ECFCA1B6DFF210024A059 /* MirmecaEnv.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
