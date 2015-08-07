@@ -17,7 +17,7 @@ class TermsGatewayTestCase: XCTestCase {
         MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "test")
     }
     
-    func testGetSingleTerm() {
+    func testGetTermsList() {
         let loadedExpectation = expectationWithDescription("Get a list of terms")
         self.envSetUp()
         
@@ -37,7 +37,7 @@ class TermsGatewayTestCase: XCTestCase {
         })
     }
     
-    func testGetSingleTermError() {
+    func testGetTermsListError() {
         let loadedExpectation = expectationWithDescription("Get an error for a single term")
         self.envSetUp()
         

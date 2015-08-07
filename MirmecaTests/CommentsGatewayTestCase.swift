@@ -17,7 +17,7 @@ class CommentsGatewayTestCase: XCTestCase {
         MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "test")
     }
     
-    func testGetSingleComment() {
+    func testGetCommentsList() {
         let loadedExpectation = expectationWithDescription("Get a list of comments")
         self.envSetUp()
         
@@ -37,7 +37,7 @@ class CommentsGatewayTestCase: XCTestCase {
         })
     }
     
-    func testGetSingleCommentError() {
+    func testGetCommentsListCommentError() {
         let loadedExpectation = expectationWithDescription("Get an error for a single comment")
         self.envSetUp()
         
