@@ -1,6 +1,6 @@
 language: objective-c
-xcode_workspace: Mirmeca.xcworkspace
-xcode_scheme: MirmecaTests
+script:
+  - xctool -workspace Mirmeca.xcworkspace -scheme MirmecaTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 before_install:
   - brew update
   - brew outdated xctool || brew upgrade xctool
