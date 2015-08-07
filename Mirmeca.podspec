@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'Mirmeca'
-  s.version      = '0.02'
+  s.version      = '0.03'
   s.license      = { :type => 'MIT' }
   s.homepage     = 'https://github.com/Mirmeca/Mirmeca'
   s.authors      = { 'Solal Fitoussi' => 'solal.fitoussi@gmail.com' }
