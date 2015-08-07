@@ -1,15 +1,12 @@
 language: objective-c
 osx_image: xcode6.4
-
 env:
   global:
     - LANG=en_US.UTF-8
     - LC_ALL=en_US.UTF-8
-    - XCODE_WORKSPACE=Mirmeca.xcworkspace
-  matrix:
-    - SCRIPT="xctool -workspace $XCODE_WORKSPACE -scheme Mirmeca-iOS -sdk iphonesimulator test"
-
+script:
+  - xctool -workspace Mirmeca.xcworkspace -scheme MirmecaTests CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 before_install:
-  - brew update
+  - brew update; brew update
   - brew outdated xctool || brew upgrade xctool
-  - pod install
+  - gem install cocoapods -v '= 0.38.0'
