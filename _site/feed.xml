@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mirmeca</title>
+    <description>Build apps on top of the WordPress API with Swift.</description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 08 Aug 2015 20:14:21 +1000</pubDate>
+    <lastBuildDate>Sat, 08 Aug 2015 20:14:21 +1000</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Terms Gateway</title>
+        <description>&lt;h1 id=&quot;terms-gateway&quot;&gt;Terms Gateway&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/terms-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/terms-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Term Gateway</title>
+        <description>&lt;h1 id=&quot;term-gateway&quot;&gt;Term Gateway&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/term-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/term-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Term</title>
+        <description>&lt;h1 id=&quot;term&quot;&gt;Term&lt;/h1&gt;
+&lt;p&gt;This is how the Terms are built.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/models/term</link>
+        <guid isPermaLink="true">/contribute/models/term</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>models</category>
+        
+      </item>
+    
+      <item>
+        <title>Posts Gateway</title>
+        <description>&lt;h1 id=&quot;posts-gateway&quot;&gt;Posts Gateway&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/posts-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/posts-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Post Gateway</title>
+        <description>&lt;h1 id=&quot;post-gateway&quot;&gt;Post Gateway&lt;/h1&gt;
+&lt;p&gt;This is how the posts are built.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/post-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/post-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Post</title>
+        <description>&lt;h1 id=&quot;post&quot;&gt;Post&lt;/h1&gt;
+&lt;p&gt;This is how the Posts are built.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/models/post</link>
+        <guid isPermaLink="true">/contribute/models/post</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>models</category>
+        
+      </item>
+    
+      <item>
+        <title>Featured Image</title>
+        <description>&lt;h1 id=&quot;featured-image&quot;&gt;Featured Image&lt;/h1&gt;
+&lt;p&gt;This is how the Featured Images are built.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/models/featured-image</link>
+        <guid isPermaLink="true">/contribute/models/featured-image</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>models</category>
+        
+      </item>
+    
+      <item>
+        <title>Comments Gateway</title>
+        <description>&lt;h1 id=&quot;comments-gateway&quot;&gt;Comments Gateway&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/comments-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/comments-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Comment Gateway</title>
+        <description>&lt;h1 id=&quot;comment-gateway&quot;&gt;Comment Gateway&lt;/h1&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/gateways/comment-gateway</link>
+        <guid isPermaLink="true">/contribute/gateways/comment-gateway</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>gateways</category>
+        
+      </item>
+    
+      <item>
+        <title>Comment</title>
+        <description>&lt;h1 id=&quot;comment&quot;&gt;Comment&lt;/h1&gt;
+&lt;p&gt;This is how the Comments are built.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/contribute/models/comment</link>
+        <guid isPermaLink="true">/contribute/models/comment</guid>
+        
+        
+        <category>contribute</category>
+        
+        <category>models</category>
+        
+      </item>
+    
+  </channel>
+</rss>
