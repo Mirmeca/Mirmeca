@@ -60,8 +60,8 @@ PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: N
 Here are three of the numerous things **Mirmeca** helps you accomplish.
 
 ###Types & Gateways
-- Check the list available **types** [here]().
-- Check the list available **Gateways** [here]().
+- Check the list available **types** [here](http://mirmeca.github.io/Mirmeca/contribute/models/).
+- Check the list available **Gateways** [here](http://mirmeca.github.io/Mirmeca/contribute/gateways/).
 
 ###Search for posts
 - Endpoint: `posts?filter[s]=`
