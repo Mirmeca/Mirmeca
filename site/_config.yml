@@ -1,0 +1,13 @@
+# Site settings
+title: Mirmeca
+email: solal.fitoussi@gmail.com
+description: "Build apps on top of the WordPress API with Swift."
+baseurl: "/Mirmeca" # the subpath of your site, e.g. /blog/
+
+# url: "http://yourdomain.com" # the base hostname & protocol for your site
+# twitter_username: jekyllrb
+github_username:  solal
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title

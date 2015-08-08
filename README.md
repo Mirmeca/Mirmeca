@@ -3,27 +3,43 @@
 # Mirmeca
 Mirmeca is a framework written in Swift that makes it easy for you to build apps on top of the WordPress API.
 
+- [Features](#features)
+- [Getting started](#getting-started)
+- [Available types]()
+- [Available gateways]()
+- [Use cases](#use-cases)
+- [Installation](#installation)
+- [Contributing](#contributing)
+
+<a name="features"></a>
 #Features
-- Out of the box models for WordPress types (`Post`, `Term`, `Comment`, `FeaturedImage`, etc...).
-- Built in gateways to retrieve collections of content or single items from you WordPress backend (`PostsGateway`, `CommentGateway`, etc...).
+- Out of the box models for WordPress **types** (`Post`, `FeaturedImage`,  `Term`, `Comment`, `Author`, etc...).
+- Built in gateways to retrieve collections of types or single items from your WordPress backend (`PostsGateway`, `CommentGateway`, etc...).
 - Start displaying content in under 5 minutes and less than 5 lines of code.
 
+<a name="getting-started"></a>
 #Getting started
 To get started you will need a WordPress installion running the [**WP API**](https://wordpress.org/plugins/json-rest-api/) plugin.
 
-#####Declare your environnements in your `AppDelegate`
+Interaction with your WordPress backend is made through **Gateways** (`PostsGateway`, `TermGateway`...).
+
+Gateways let you send requests for content to WordPress in just a few lines of code.
+
+They output **types** (`Post`, `Comment`, `Author`...) or arrays or types.
+
+###Declare your environnements in your `AppDelegate`
 
 ```swift
 let envs = ["dev": "http://localhost:3000/wp-json", "staging": "http://staging.example.com"]
 MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
 ```
 
-#####Send a request to get the latest posts in your `ViewController`
+###Send a request to get the latest posts in your `ViewController`
 ```swift
 // Pass the "posts" endpoint & use the default env
 PostsGateway(endpoint: "posts", env: nil).request({})
 ```
-#####Print the posts by passing a closure to the `request` method
+###Print the posts by passing a closure to the `request` method
 ```swift
 PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
   // Make sure that something was returned
@@ -39,10 +55,15 @@ PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: N
 })
 ```
 
+<a name="use-cases"></a>
 #Use cases
 Here are three of the numerous things **Mirmeca** helps you accomplish.
 
-#####Search for posts
+###Types & Gateways
+- Check the list available **types** [here]().
+- Check the list available **Gateways** [here]().
+
+###Search for posts
 - Endpoint: `posts?filter[s]=`
 - Gateway: `PostsGateway`
 - Code:
@@ -63,7 +84,7 @@ PostsGateway(endpoint: "posts?filter[s]=\(query)", env: nil).request({ (value: A
 })
 ```
 
-#####List your site's categories
+###List your site's categories
 - Endpoint: `taxonomies/category/terms`
 - Gateway: `TermsGateway`
 - Code:
@@ -83,7 +104,7 @@ TermsGateway(endpoint: "taxonomies/category/terms", env: nil).request({ (value: 
 })
 ```
 
-#####Retrieve comments for a post
+###Retrieve comments for a post
 - Endpoint: `posts/40627/comments`
 - Gateway: `CommentsGateway`
 - Code:
@@ -102,3 +123,9 @@ CommentsGateway(endpoint: "posts/40627/comments", env: nil).request({ (value: An
     }
 })
 ```
+
+<a name="installation"></a>
+#Installation
+
+<a name="contributing"></a>
+#Contributing
