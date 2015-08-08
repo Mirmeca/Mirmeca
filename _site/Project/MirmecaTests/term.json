@@ -1,0 +1,16 @@
+{
+    "ID": 378,
+    "name": "iOS",
+    "slug": "ios",
+    "description": "",
+    "taxonomy": "category",
+    "parent": null,
+    "count": 1,
+    "link": "http://localhost:8888/category/ios/",
+    "meta": {
+        "links": {
+            "collection": "http://localhost:8888/wp-json/taxonomies/category/terms",
+            "self": "http://localhost:8888/wp-json/taxonomies/category/terms/378"
+        }
+    }
+}
