@@ -27,14 +27,14 @@ Gateways let you send requests for content to WordPress in just a few lines of c
 
 They output **types** (`Post`, `Comment`, `Author`...) or arrays or types.
 
-###Declare your environnements in your `AppDelegate`
+###Declare your environnements in your AppDelegate
 
 ```swift
 let envs = ["dev": "http://localhost:3000/wp-json", "staging": "http://staging.example.com"]
 MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
 ```
 
-###Send a request to get the latest posts in your `ViewController`
+###Send a request to get the latest posts in your ViewController
 ```swift
 // Pass the "posts" endpoint & use the default env
 PostsGateway(endpoint: "posts", env: nil).request({})
