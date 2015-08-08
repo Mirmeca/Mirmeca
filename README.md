@@ -39,7 +39,7 @@ MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
 // Pass the "posts" endpoint & use the default env
 PostsGateway(endpoint: "posts", env: nil).request({})
 ```
-###Print the posts by passing a closure to the `request` method
+###Print the posts by passing a closure to the request method
 ```swift
 PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
   // Make sure that something was returned
