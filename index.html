@@ -4,20 +4,22 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <div class="row">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="col-md-8 col-md-offset-2 text-center">
+          <h1>Mirmeca</h1>
+          <p>Build apps on top of the WordPress API with Swift.</p>
+          <p>
+            <a class="btn btn-default btn-lg" href="/getting-started" role="button">Start Now</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <section>
+    {% include tutorials.html %}
+  </section>
 
 </div>

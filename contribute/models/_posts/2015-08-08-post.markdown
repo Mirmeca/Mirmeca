@@ -1,9 +1,0 @@
----
-layout: page
-title:  "Post"
-date:   2015-08-08 16:37:18
-categories:
----
-
-#Post
-This is how the Posts are built.

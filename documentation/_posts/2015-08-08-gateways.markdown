@@ -1,0 +1,141 @@
+---
+layout: page
+title:  "Gateways"
+subTitle: "List of available gateways with their properties and methods."
+categories: quick-doc
+date:   2015-08-08 16:37:18
+image: "http://placehold.it/600x300/00a8a8/fff"
+---
+
+## Introduction
+
+Gateways implement the `Gateway` protocol. Therefore they all follow the same convention and give you a single method for you to interact with:
+
+<pre class="prettyprint">
+func request(completion: (value: AnyObject?, error: NSError?) -> Void)
+</pre>
+
+The `request` method expects a completion handler and will give you the optionals `value` and `error`.
+
+Both can be `nil` depending on wether the method met an error or if it properly returned content.
+
+`value` needs to be casted to the type you are expecting from the Gateway.<br>For exemple, `PostsGateway` will need you to cast `value` to `[Post]` (an array of posts) and `TermGateway` will need you to cast `value` to `Term` (a single term).
+
+### List of available Gateways
+
+- [PostGateway](#PostGateway)
+- [PostsGateway](#PostsGateway)
+- [TermGateway](#TermGateway)
+- [TermsGateway](#TermsGateway)
+- [CommentGateway](#CommentGateway)
+- [CommentsGateway](#CommentsGateway)
+
+
+
+<a name="PostGateway"></a>
+
+###PostGateway
+<pre class="prettyprint">
+//Possible implementation
+PostGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value as a single post
+    let post = value as! Post
+    println(post.title!)
+  }
+})
+</pre>
+
+<a name="PostsGateway"></a>
+
+###PostsGateway
+<pre class="prettyprint">
+//Possible implementation
+PostsGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value as an array of posts
+    let posts = value as! [Post]
+    for post in posts {
+      println(post.title!)
+    }
+  }
+})
+</pre>
+
+<a name="TermGateway"></a>
+
+###TermGateway
+<pre class="prettyprint">
+//Possible implementation
+TermGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value as a single term
+    let term = value as! Term
+    println(term.name!)
+  }
+})
+</pre>
+
+<a name="TermsGateway"></a>
+
+###TermsGateway
+<pre class="prettyprint">
+//Possible implementation
+TermsGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value as an array of terms
+    let terms = value as! [Term]
+    for term in terms {
+      println(term.name!)
+    }
+  }
+})
+</pre>
+
+<a name="CommentGateway"></a>
+
+###CommentGateway
+<pre class="prettyprint">
+//Possible implementation
+CommentGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value a single comment
+    let comment = value as! [Comment]
+    println(comment.author!.name!)
+  }
+})
+</pre>
+
+<a name="CommentsGateway"></a>
+
+###CommentsGateway
+<pre class="prettyprint">
+//Possible implementation
+CommentsGateway(endpoint: ":my-endpoint", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  // Make sure that something was returned
+  if (error != nil) {
+    println("Something went wrong")
+  } else {
+    // Cast the return value as an array of comments
+    let comments = value as! [Comment]
+    for comment in comments {
+      println(comment.author!.name!)
+    }
+  }
+})
+</pre>

@@ -1,9 +1,0 @@
----
-layout: page
-title:  "Comment"
-date:   2015-08-08 16:37:18
-categories:
----
-
-#Comment
-This is how the Comments are built.

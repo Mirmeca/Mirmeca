@@ -1,0 +1,157 @@
+---
+layout: page
+title:  "Models"
+subTitle: "List of available models with their properties and methods."
+categories: quick-doc
+date:   2015-08-08 16:37:18
+image: "http://placehold.it/600x300/00a8a8/fff"
+---
+
+## Introduction
+
+Models are the available types that you can play with. They are representations of WordPress types.
+
+### List of available Models
+
+- [Post](#Post)
+- [Term](#Term)
+- [Comment](#Comment)
+- [Author](#Author)
+- [FeaturedImage](#FeaturedImage)
+- [AttachmentMeta](#AttachmentMeta)
+- [AttachmentSize](#AttachmentSize)
+
+
+<a name="Post"></a>
+
+###Post
+<pre class="prettyprint">
+var id: Int?
+var title: String?
+var status: String?
+var type: String?
+var author: Author?
+var content: String?
+var parent: Int?
+var link: String?
+var date: String?
+var modified: String?
+var format: String?
+var slug: String?
+var guid: String?
+var excerpt: String?
+var menuOrder: Int?
+var commentStatus: String?
+var pingStatus: String?
+var sticky: Bool?
+var dateTz: String?
+var dateGmt: String?
+var modifiedTz: String?
+var modifiedGmt: String?
+var featuredImage: FeaturedImage?
+var categories: [Term]?
+var tags: [Term]?
+var featuredImageUrl: NSURL
+</pre>
+
+<a name="Term"></a>
+
+###Term
+<pre class="prettyprint">
+var id: Int?
+var name: String?
+var slug: String?
+var description: String?
+var taxonomy: String?
+var parent: Int?
+var count: Int?
+var link: String?
+</pre>
+
+<a name="Comment"></a>
+
+###Comment
+<pre class="prettyprint">
+var id: Int?
+var post: Int?
+var content: String?
+var status: String?
+var type: String?
+var parent: Int?
+var author: Author?
+var date: String?
+var dateTz: String?
+var dateGmt: String?
+</pre>
+
+<a name="Author"></a>
+
+###Author
+<pre class="prettyprint">
+var id: Int?
+var username: String?
+var name: String?
+var firstName: String?
+var lastName: String?
+var nickname: String?
+var slug: String?
+var url: String?
+var avatar: String?
+var description: String?
+var registered: String?
+</pre>
+
+<a name="FeaturedImage"></a>
+
+###FeaturedImage
+<pre class="prettyprint">
+var id: Int?
+var title: String?
+var status: String?
+var type: String?
+var author: Author?
+var content: String?
+var parent: Int?
+var link: String?
+var date: String?
+var modified: String?
+var format: String?
+var slug: String?
+var guid: String?
+var excerpt: String?
+var menuOrder: Int?
+var commentStatus: String?
+var pingStatus: String?
+var sticky: Bool?
+var dateTz: String?
+var dateGmt: String?
+var modifiedTz: String?
+var modifiedGmt: String?
+var terms: [Term]?
+var source: String?
+var isImage: Bool?
+var attachmentMeta: AttachmentMeta?
+</pre>
+
+<a name="AttachmentMeta"></a>
+
+###AttachmentMeta
+<pre class="prettyprint">
+var width: Int?
+var height: Int?
+var file: String?
+var thumbnail: AttachmentSize?
+var medium: AttachmentSize?
+var large: AttachmentSize?
+</pre>
+
+<a name="AttachmentSize"></a>
+
+###AttachmentSize
+<pre class="prettyprint">
+var width: Int?
+var height: Int?
+var file: String?
+var mimeType: String?
+var url: String?
+</pre>
