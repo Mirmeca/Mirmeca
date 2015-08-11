@@ -29,3 +29,6 @@
     .jumbotron .btn-default:hover {
       background-color: #FFFFFF;
       color: #183078; }
+
+.post-content img {
+  max-width: 100%; }

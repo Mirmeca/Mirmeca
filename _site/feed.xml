@@ -3,10 +3,10 @@
   <channel>
     <title>Mirmeca</title>
     <description>Build apps on top of the WordPress API with Swift.</description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Aug 2015 18:42:50 +1000</pubDate>
-    <lastBuildDate>Sun, 09 Aug 2015 18:42:50 +1000</lastBuildDate>
+    <link>/Mirmeca/</link>
+    <atom:link href="/Mirmeca/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 11 Aug 2015 23:13:34 +1000</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2015 23:13:34 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -162,8 +162,8 @@ var url: String?
 &lt;/pre&gt;
 </description>
         <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
-        <link>/documentation/quick-doc/models</link>
-        <guid isPermaLink="true">/documentation/quick-doc/models</guid>
+        <link>/Mirmeca/documentation/quick-doc/models</link>
+        <guid isPermaLink="true">/Mirmeca/documentation/quick-doc/models</guid>
         
         
         <category>documentation</category>
@@ -174,136 +174,189 @@ var url: String?
     
       <item>
         <title>Getting Started</title>
-        <description>&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;To get started you will need a WordPress installion running the &lt;a href=&quot;https://wordpress.org/plugins/json-rest-api/&quot;&gt;&lt;strong&gt;WP API&lt;/strong&gt;&lt;/a&gt; plugin.&lt;/p&gt;
+        <description>&lt;p&gt;The aim of this Getting Started Guide is to show you how you can build an app on top of your WordPress backend in just a few minutes with Mirmeca.&lt;/p&gt;
 
-&lt;p&gt;Interaction with your WordPress backend is made through &lt;strong&gt;Gateways&lt;/strong&gt; (&lt;code&gt;PostsGateway&lt;/code&gt;, &lt;code&gt;TermGateway&lt;/code&gt;…).&lt;/p&gt;
+&lt;p&gt;This tutorial assumes you’re already familiar with Cocoapods as we’ll use it to install Mirmeca. You will also need to have an installation of WordPress running the &lt;a href=&quot;https://wordpress.org/plugins/json-rest-api/&quot;&gt;WP API plugin&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Gateways let you send requests for content to WordPress in just a few lines of code.&lt;/p&gt;
+&lt;p&gt;Let’s get started!&lt;/p&gt;
 
-&lt;p&gt;They output &lt;strong&gt;types&lt;/strong&gt; (&lt;code&gt;Post&lt;/code&gt;, &lt;code&gt;Comment&lt;/code&gt;, &lt;code&gt;Author&lt;/code&gt;…) or arrays or types.&lt;/p&gt;
+&lt;h3 id=&quot;creating-a-new-project-and-installing-mirmeca&quot;&gt;1. Creating a new project and installing Mirmeca&lt;/h3&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Open XCode and create a new “Single View Application”. I will call mine “Breaking News”.&lt;/p&gt;
 
-&lt;h4 id=&quot;declare-your-environnements-in-your-appdelegate&quot;&gt;Declare your environnements in your AppDelegate&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/create-app.png&quot; alt=&quot;create app&quot; /&gt;&lt;/p&gt;
 
-&lt;pre class=&quot;prettyprint&quot;&gt;let envs = [&quot;dev&quot;: &quot;http://localhost:3000/wp-json&quot;, &quot;staging&quot;: &quot;http://staging.example.com&quot;]
-MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: &quot;dev&quot;)
-&lt;/pre&gt;
+&lt;p&gt;Now &lt;code&gt;cd&lt;/code&gt; into your app’s directory and &lt;code&gt;pod init&lt;/code&gt; to create your &lt;code&gt;Podfile&lt;/code&gt; (if you haven’t installed Cocoapods, you’ll find a guide &lt;a href=&quot;http://guides.cocoapods.org/using/getting-started.html&quot;&gt;here&lt;/a&gt; - you can also install the framework manually).&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;send-a-request-to-get-the-latest-posts-in-your-viewcontroller&quot;&gt;Send a request to get the latest posts in your ViewController&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint&quot;&gt;
-// Pass the &quot;posts&quot; endpoint &amp;amp; use the default env
-PostsGateway(endpoint: &quot;posts&quot;, env: nil).request({})
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;print-the-posts-by-passing-a-closure-to-the-request-method&quot;&gt;Print the posts by passing a closure to the &lt;code&gt;request&lt;/code&gt; method&lt;/h4&gt;
-&lt;pre class=&quot;prettyprint&quot;&gt;
-PostsGateway(endpoint: &quot;posts&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
-  // Make sure that something was returned
-  if (error != nil) {
-    println(&quot;Something went wrong&quot;)
-  } else {
-    // Cast the return value as an array of posts
-    let posts = value as! [Post]
-    for post in posts {
-      println(post.title!)
-    }
-  }
-})
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;use-cases&quot;&gt;Use cases&lt;/h1&gt;
-&lt;p&gt;Here are three of the numerous things &lt;strong&gt;Mirmeca&lt;/strong&gt; helps you accomplish.&lt;/p&gt;
-
-&lt;h4 id=&quot;types--gateways&quot;&gt;Types &amp;amp; Gateways&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Check the list available &lt;strong&gt;types&lt;/strong&gt; &lt;a href=&quot;/documentation/models/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Check the list available &lt;strong&gt;Gateways&lt;/strong&gt; &lt;a href=&quot;/documentation/gateways/&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;search-for-posts&quot;&gt;Search for posts&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Endpoint: &lt;code&gt;posts?filter[s]=&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Gateway: &lt;code&gt;PostsGateway&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Code:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Now we need to add Mirmeca to our &lt;code&gt;Podfile&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre class=&quot;prettyprint&quot;&gt;
-let query = &quot;chocolate%20cake&quot;
-PostsGateway(endpoint: &quot;posts?filter[s]=\(query)&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
-  // Make sure that something was returned
-  if (error != nil) {
-    println(&quot;Something went wrong&quot;)
-  } else {
-    // Cast the return value as an array of posts
-    let posts = value as! [Post]
-    for post in posts {
-      println(post.title!)
-    }
-  }
-})
+source &#39;https://github.com/CocoaPods/Specs.git&#39;
+platform :ios, &#39;8.0&#39;
+use_frameworks!
+
+target &#39;Breaking News&#39; do
+  pod &#39;Mirmeca&#39;, :git =&amp;gt; &#39;git@github.com:Mirmeca/Mirmeca.git&#39;
+end
+
+target &#39;Breaking News&#39; do
+end
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;Just run &lt;code&gt;pod update&lt;/code&gt; and you’re all set for the first phase.&lt;/p&gt;
 
-&lt;h4 id=&quot;list-your-sites-categories&quot;&gt;List your site’s categories&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Endpoint: &lt;code&gt;taxonomies/category/terms&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Gateway: &lt;code&gt;TermsGateway&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Code:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;setting-up-view-controllers&quot;&gt;2. Setting up view controllers&lt;/h3&gt;
+
+&lt;p&gt;Open up the newly created Workspace (&lt;code&gt;.xcworkspace&lt;/code&gt;) that Cocoapods created for you.&lt;/p&gt;
+
+&lt;p&gt;Create a new class, a subclass of &lt;code&gt;UITableViewController&lt;/code&gt;, and simply call it &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/create-class.png&quot; alt=&quot;create class&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, go into your &lt;code&gt;Storyboard&lt;/code&gt; and add a &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/add-table-view-controller.png&quot; alt=&quot;add table view controller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then grab the &lt;code&gt;Storyboard entry point&lt;/code&gt; (the arrow currently sitting next to your &lt;code&gt;View Controller&lt;/code&gt;), and drag it to your freshly created &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/entry-point.png&quot; alt=&quot;entry point&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click your &lt;code&gt;TableViewController&lt;/code&gt;, and in the inspector, set its class to be &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/class-inspector.png&quot; alt=&quot;class inspector&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click the cell of our &lt;code&gt;TableViewController&lt;/code&gt;, and set its style to “Subtitle”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/subtitle.png&quot; alt=&quot;subtitle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To finish with the Storyboard, we’ll set our cell’s identifier as &lt;code&gt;postCell&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/identifier.png&quot; alt=&quot;cell identifier&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;plugging-mirmeca-into-the-app&quot;&gt;3. Plugging Mirmeca into the app&lt;/h3&gt;
+&lt;p&gt;It’s now time for the fun stuff and start getting data into our app.&lt;/p&gt;
+
+&lt;p&gt;We have three simple steps ahead of us:&lt;br /&gt;
+  &lt;strong&gt;a)&lt;/strong&gt; Declaring our environnements in the AppDelegate&lt;br /&gt;
+  &lt;strong&gt;b)&lt;/strong&gt; Loading the latest posts&lt;br /&gt;
+  &lt;strong&gt;c)&lt;/strong&gt; Displaying the posts&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-declaring-our-environnements-in-the-appdelegate&quot;&gt;a) Declaring our environnements in the AppDelegate&lt;/h4&gt;
+&lt;p&gt;For Mirmeca to work, it needs to be provided with your environnements at startup.&lt;/p&gt;
+
+&lt;p&gt;Easy, enough, the framework gives you a simple method to do just that. The trick is that it needs to be called from your &lt;code&gt;AppDelegate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Start by importing Mirmeca:&lt;/p&gt;
 
 &lt;pre class=&quot;prettyprint&quot;&gt;
-TermsGateway(endpoint: &quot;taxonomies/category/terms&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
-    // Make sure that something was returned
-    if (error != nil) {
-        println(&quot;Something went wrong&quot;)
-    } else {
-        // Cast the return value as an array of terms
-        let categories = value as! [Term]
-        for category in categories {
-            println(category.name!)
-        }
-    }
-})
+import UIKit
+import Mirmeca
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;retrieve-comments-for-a-post&quot;&gt;Retrieve comments for a post&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;Endpoint: &lt;code&gt;posts/40627/comments&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Gateway: &lt;code&gt;CommentsGateway&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Code:&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Then in your &lt;code&gt;application didFinishLaunchingWithOptions&lt;/code&gt; method, create a dictionary with your envs (I only have one here) and call the &lt;code&gt;MirmecaEnv.sharedInstance.defineEnvs(envList: Dictionary&amp;lt;String, String&amp;gt;, defaultEnv: String)&lt;/code&gt; method.&lt;/p&gt;
 
 &lt;pre class=&quot;prettyprint&quot;&gt;
-CommentsGateway(endpoint: &quot;posts/40627/comments&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
-    // Make sure that something was returned
-    if (error != nil) {
-        println(&quot;Something went wrong&quot;)
-    } else {
-        // Cast the return value as an array of comments
-        let comments = value as! [Comment]
-        for comment in comments {
-            println(comment.author!.name!)
-        }
-    }
-})
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&amp;gt; Bool {
+    let envs = [&quot;dev&quot;: &quot;http://localhost:3000/wp-json&quot;]
+    // Our default env will simply be `dev`
+    MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: &quot;dev&quot;)
+
+    return true
+}
 &lt;/pre&gt;
+
+&lt;p&gt;So now every time Mirmeca will send a request to an API endpoint, it will use the URL of your default env, unless you specify a new one.
+Let’s try that!&lt;/p&gt;
+
+&lt;h4 id=&quot;b-loading-the-latest-posts&quot;&gt;b) Loading the latest posts&lt;/h4&gt;
+&lt;p&gt;Go to your &lt;code&gt;TableViewController&lt;/code&gt; class. Start by importing Mirmeca and create an array of &lt;code&gt;posts&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+import UIKit
+import Mirmeca
+
+class TableViewController: UITableViewController {
+    
+    var posts = [Post]()
+    
+...
+&lt;/pre&gt;
+
+&lt;p&gt;Now, we need to work in our &lt;code&gt;viewDidLoad&lt;/code&gt; method. We’ll send a request to our WordPress backend asking for the latest posts using Mirmeca’s &lt;code&gt;PostsGateway&lt;/code&gt; class and the &lt;code&gt;posts&lt;/code&gt; endpoint.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func viewDidLoad() {
+    super.viewDidLoad()
+   
+    PostsGateway(endpoint: &quot;posts&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
+      if (error != nil) {
+        //let&#39;s do something like print an alert
+      } else {
+        self.posts = value as! [Post]
+      }
+    })
+}
+&lt;/pre&gt;
+
+&lt;p&gt;So what are we doing exactly here?&lt;br /&gt;
+We start by instantiating a &lt;code&gt;PostsGateway&lt;/code&gt; object with no env (will use default) and an endpoint to get the latest posts.&lt;br /&gt;
+We then pass a closure to the request method to do something once the list of posts has been returned.&lt;br /&gt;
+We check if we have an error before doing anything with &lt;code&gt;value&lt;/code&gt;.
+Finally, we cast &lt;code&gt;value&lt;/code&gt; to an array of posts and assign it to our &lt;code&gt;posts&lt;/code&gt; variable.&lt;/p&gt;
+
+&lt;p&gt;Ok that’s great! We’re all set to fetch posts from the API! We could easily print the titles of our posts or the number of posts we have in our array to make sure we’re getting something.&lt;/p&gt;
+
+&lt;h4 id=&quot;c-displaying-the-posts&quot;&gt;c) Displaying the posts&lt;/h4&gt;
+&lt;p&gt;This bit is fairly easy, it takes 3 short steps.&lt;/p&gt;
+
+&lt;p&gt;First, we need to set the number of sections in our table view, and we only need one here:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func numberOfSectionsInTableView(tableView: UITableView) -&amp;gt; Int {
+    return 1
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Second, we need to set the number of rows in our section. It will correspond to the number of items we have in the posts array:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&amp;gt; Int {
+    return self.posts.count
+}
+&lt;/pre&gt;
+
+&lt;p&gt;And last but not least, we need to configure our cell to display our content.&lt;/p&gt;
+
+&lt;p&gt;Let’s configure our cells’ &lt;code&gt;textLabel&lt;/code&gt; and &lt;code&gt;detailTextLabel&lt;/code&gt; with our post title and author’s first name respectively.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&amp;gt; UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier(&quot;postCell&quot;, forIndexPath: indexPath) as! UITableViewCell
+    
+    // Get the post corresponding to the row
+    let post = self.posts[indexPath.row]
+    
+    cell.textLabel?.text = post.title!
+    cell.detailTextLabel?.text = post.author!.firstName
+    return cell
+}
+&lt;/pre&gt;
+
+&lt;p&gt;As you can see in the code above, populating our row is as simple as accessing properties on the &lt;code&gt;Post&lt;/code&gt; object Mirmeca is giving us.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;So there you have it, your first Mirmeca app!&lt;/p&gt;
+
+&lt;p&gt;We’ve loaded our latest posts in our app in a matter of minutes, without having to write the underlying code that would normally have been required for us to implement this feature.&lt;/p&gt;
+
+&lt;p&gt;But Mirmeca allows you to do much much more. Things like building a search functionality for your app, navigate by category, display posts by a certain tag etc…&lt;/p&gt;
+
+&lt;p&gt;Need help with anything? Please get in touch solal.fitoussi [at] gmail [dot] com&lt;/p&gt;
+
 </description>
         <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
-        <link>/getting-started</link>
-        <guid isPermaLink="true">/getting-started</guid>
+        <link>/Mirmeca/getting-started</link>
+        <guid isPermaLink="true">/Mirmeca/getting-started</guid>
         
         
       </item>
@@ -444,8 +497,8 @@ CommentsGateway(endpoint: &quot;:my-endpoint&quot;, env: nil).request({ (value: 
 &lt;/pre&gt;
 </description>
         <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
-        <link>/documentation/quick-doc/gateways</link>
-        <guid isPermaLink="true">/documentation/quick-doc/gateways</guid>
+        <link>/Mirmeca/documentation/quick-doc/gateways</link>
+        <guid isPermaLink="true">/Mirmeca/documentation/quick-doc/gateways</guid>
         
         
         <category>documentation</category>
@@ -459,8 +512,8 @@ CommentsGateway(endpoint: &quot;:my-endpoint&quot;, env: nil).request({ (value: 
         <description>
 </description>
         <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
-        <link>/documentation/quick-doc/endpoints</link>
-        <guid isPermaLink="true">/documentation/quick-doc/endpoints</guid>
+        <link>/Mirmeca/documentation/quick-doc/endpoints</link>
+        <guid isPermaLink="true">/Mirmeca/documentation/quick-doc/endpoints</guid>
         
         
         <category>documentation</category>
