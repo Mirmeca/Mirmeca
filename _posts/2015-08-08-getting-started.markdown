@@ -31,7 +31,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Breaking News' do
-  pod 'Mirmeca', :git => 'git@github.com:Mirmeca/Mirmeca.git'
+  pod 'Mirmeca', '~> 0.04'
 end
 
 target 'Breaking News' do
