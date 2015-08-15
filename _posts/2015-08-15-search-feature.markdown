@@ -1,12 +1,13 @@
 ---
-layout: page
-title:  "Getting Started"
-date:   2015-08-08 16:37:18
-subTitle: "This guide will walk you through how Mirmeca works."
+layout:     page
+title:      "Building a Search Feature"
+date:       2015-08-08 16:37:18
+subTitle:   "This tutorial will walk you through how to build a search feature for your app with Mirmeca."
 categories: tutorial
 ---
 
-The aim of this Getting Started Guide is to show you how you can build an app on top of your WordPress backend in just a few minutes with Mirmeca.
+The aim of this tutorial is to show you how you can build a search feature for your app on top of your WordPress backend using Mirmeca.
+Mirmeca, helps you cut your dev time dramatically.
 
 This tutorial assumes you're already familiar with Cocoapods as we'll use it to install Mirmeca. You will also need to have an installation of WordPress running the [WP API plugin](https://wordpress.org/plugins/json-rest-api/).
 
@@ -50,8 +51,9 @@ Create a new class, a subclass of `UITableViewController`, and simply call it `T
 
 ![create class]({{ site.url }}/Mirmeca/assets/images/create-class.png)
 
+####a) TableViewController
 
-Next, go into your `Storyboard` and add a `TableViewController`.
+In your `Storyboard` and add a `TableViewController`.
 
 
 ![add table view controller]({{ site.url }}/Mirmeca/assets/images/add-table-view-controller.png)
@@ -68,26 +70,42 @@ Click your `TableViewController`, and in the inspector, set its class to be `Tab
 
 ![class inspector]({{ site.url }}/Mirmeca/assets/images/class-inspector.png)
 
+####b) Search bar & results cells
 
 Click the cell of our `TableViewController`, and set its style to "Subtitle".
 
 
 ![subtitle]({{ site.url }}/Mirmeca/assets/images/subtitle.png)
 
-
-To finish with the Storyboard, we'll set our cell's identifier as `postCell`.
-
+We'll set our cell's identifier as `postCell`.
 
 ![cell identifier]({{ site.url }}/Mirmeca/assets/images/identifier.png)
 
+Now look for "Search Bar" in the object library.
+
+![subtitle]({{ site.url }}/Mirmeca/assets/images/search-bar-obj-lib.png)
+
+Drag it and drop it on your view above your cell.
+
+![subtitle]({{ site.url }}/Mirmeca/assets/images/search-bar-on-view.png)
+
+Once you're done, select it and create an outlet on your `TableViewController` class called `postsSearchBar`.
+
+Make sure your outlet is connected to the search bar on the view.
+
+<pre class="prettyprint">
+class TableViewController: UITableViewController {
+    @IBOutlet weak var postsSearchBar: UISearchBar!
+</pre>
 
 ### 3. Plugging Mirmeca into the app
 It's now time for the fun stuff and start getting data into our app.
 
-We have three simple steps ahead of us:<br>
+We have four simple steps ahead of us:<br>
   **a)** Declaring our environnements in the AppDelegate<br>
-  **b)** Loading the latest posts<br>
-  **c)** Displaying the posts<br>
+  **b)** Integrating our search bar<br>
+  **c)** Fetching our searched posts<br>
+  **d)** Displaying the posts<br>
 
 ####a) Declaring our environnements in the AppDelegate
 For Mirmeca to work, it needs to be provided with your environnements at startup.
@@ -116,45 +134,86 @@ func application(application: UIApplication, didFinishLaunchingWithOptions launc
 So now every time Mirmeca will send a request to an API endpoint, it will use the URL of your default env, unless you specify a new one.
 Let's try that!
 
-####b) Loading the latest posts
-Go to your `TableViewController` class. Start by importing Mirmeca and create an array of `posts`.
+####b) Integrating our search bar
+Go to your `TableViewController` class. Start by importing Mirmeca and create an array of `posts`. You will also need to implement the `UISearchBarDelegate` protocol.
 
 <pre class="prettyprint">
 import UIKit
 import Mirmeca
 
-class TableViewController: UITableViewController {
-    
+class TableViewController: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var postsSearchBar: UISearchBar!
     var posts = [Post]()
     
 ...
 </pre>
 
-Now, we need to work in our `viewDidLoad` method. We'll send a request to our WordPress backend asking for the latest posts using Mirmeca's `PostsGateway` class and the `posts` endpoint.
+Now, we need to set the search bar's delegate as `self`.<br>
+In our `viewDidLoad` method:
 
 <pre class="prettyprint">
 override func viewDidLoad() {
     super.viewDidLoad()
-   
-    PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
-      if (error != nil) {
-        //let's do something like print an alert
-      } else {
-        self.posts = value as! [Post]
-      }
-    })
+    self.postsSearchBar.delegate = self
 }
 </pre>
 
-So what are we doing exactly here?<br>
-We start by instantiating a `PostsGateway` object with no env (will use default) and an endpoint to get the latest posts.<br>
-We then pass a closure to the request method to do something once the list of posts has been returned.<br>
-We check if we have an error before doing anything with `value`.
-Finally, we cast `value` to an array of posts and assign it to our `posts` variable.
 
-Ok that's great! We're all set to fetch posts from the API! We could easily print the titles of our posts or the number of posts we have in our array to make sure we're getting something.
+####c) Fetching our searched posts
 
-####c) Displaying the posts
+All good, now it's time to trigger the search when the user hits the "Search" button. To do so we need to do 3 things:
+
+- Get the string entered by the user and make it "query friendly".
+- Fetch our list of posts.
+- Dismiss the keyboard.
+
+All of that will happen in the `searchBarSearchButtonClicked` method. It will call two custom methods that we'll implement right now.
+
+`formatStringForSearch` to make the user's string "http friendly":
+
+<pre class="prettyprint">
+func formatStringForSearch(string: String) -> String {
+    return string.stringByReplacingOccurrencesOfString(" ", withString: "%20", options: NSStringCompareOptions.LiteralSearch, range: nil)
+}
+</pre>
+
+All this method does is find the white spaces and replace them by `%20`.
+
+`fetchPostsList` to send the request and act upon its results:
+<pre class="prettyprint">
+PostsGateway(endpoint: "posts?filter[s]=\(searchQuery)", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+    if (error != nil) {
+        println(error)
+    } else {
+        self.posts = value as! [Post]
+        self.tableView.reloadData()
+    }
+  })
+</pre>
+
+So what are we doing here? We're using the `PostsGateway` method provided by Mirmeca. We're giving it an endpoint for the search that contains the query string entered by the user and formatted by us.
+
+Then, we assign the value of our `[Post]` array to whatever list of posts Mirmeca has returned to us and we reload the table view's content to display these new posts.
+
+So now, we can actually call the two methods we've created above. We'll do this from the `searchBarSearchButtonClicked`.
+<pre class="prettyprint">
+func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    var searchQuery = self.formatStringForSearch(searchBar.text!)
+    self.fetchPostsList(searchQuery)
+    searchBar.endEditing(true)
+}
+</pre>
+
+We start by grabbing the text entered by the user in the search bar.
+
+We format this string using the `formatStringForSearch` we created earlier.
+
+We're then using this formatted string to call `fetchPostsList`.<br>
+Finally, we hide the search bar by calling `searchBar.endEditing(true)`.
+
+It's that simple!
+
+####d) Displaying the posts
 This bit is fairly easy, it takes 3 short steps.
 
 First, we need to set the number of sections in our table view, and we only need one here:
@@ -194,11 +253,8 @@ As you can see in the code above, populating our row is as simple as accessing p
 
 
 ### Conclusion
-So there you have it, your first Mirmeca app!
+So there you have it, a 10 minutes Mirmeca app that lets you search your posts!
 
-We've loaded our latest posts in our app in a matter of minutes, without having to write the underlying code that would normally have been required for us to implement this feature.
-
-But Mirmeca allows you to do much much more. Things like building a search functionality for your app, navigate by category, display posts by a certain tag etc...
+We've implemented our search feature in our app in a matter of minutes, without having to write the underlying code that would normally have been required.
 
 Need help with anything? Please get in touch solal.fitoussi [at] gmail [dot] com
-

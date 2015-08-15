@@ -5,9 +5,262 @@
     <description>Build apps on top of the WordPress API with Swift.</description>
     <link>/Mirmeca/</link>
     <atom:link href="/Mirmeca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 12 Aug 2015 18:09:21 +1000</pubDate>
-    <lastBuildDate>Wed, 12 Aug 2015 18:09:21 +1000</lastBuildDate>
+    <pubDate>Sat, 15 Aug 2015 20:28:21 +1000</pubDate>
+    <lastBuildDate>Sat, 15 Aug 2015 20:28:21 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Building a Search Feature</title>
+        <description>&lt;p&gt;The aim of this tutorial is to show you how you can build a search feature for your app on top of your WordPress backend using Mirmeca.
+Mirmeca, helps you cut your dev time dramatically.&lt;/p&gt;
+
+&lt;p&gt;This tutorial assumes you’re already familiar with Cocoapods as we’ll use it to install Mirmeca. You will also need to have an installation of WordPress running the &lt;a href=&quot;https://wordpress.org/plugins/json-rest-api/&quot;&gt;WP API plugin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s get started!&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-a-new-project-and-installing-mirmeca&quot;&gt;1. Creating a new project and installing Mirmeca&lt;/h3&gt;
+
+&lt;p&gt;Open XCode and create a new “Single View Application”. I will call mine “Breaking News”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/create-app.png&quot; alt=&quot;create app&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now &lt;code&gt;cd&lt;/code&gt; into your app’s directory and &lt;code&gt;pod init&lt;/code&gt; to create your &lt;code&gt;Podfile&lt;/code&gt; (if you haven’t installed Cocoapods, you’ll find a guide &lt;a href=&quot;http://guides.cocoapods.org/using/getting-started.html&quot;&gt;here&lt;/a&gt; - you can also install the framework manually).&lt;/p&gt;
+
+&lt;p&gt;Now we need to add Mirmeca to our &lt;code&gt;Podfile&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+source &#39;https://github.com/CocoaPods/Specs.git&#39;
+platform :ios, &#39;8.0&#39;
+use_frameworks!
+
+target &#39;Breaking News&#39; do
+  pod &#39;Mirmeca&#39;, :git =&amp;gt; &#39;git@github.com:Mirmeca/Mirmeca.git&#39;
+end
+
+target &#39;Breaking News&#39; do
+end
+&lt;/pre&gt;
+
+&lt;p&gt;Just run &lt;code&gt;pod update&lt;/code&gt; and you’re all set for the first phase.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-up-view-controllers&quot;&gt;2. Setting up view controllers&lt;/h3&gt;
+
+&lt;p&gt;Open up the newly created Workspace (&lt;code&gt;.xcworkspace&lt;/code&gt;) that Cocoapods created for you.&lt;/p&gt;
+
+&lt;p&gt;Create a new class, a subclass of &lt;code&gt;UITableViewController&lt;/code&gt;, and simply call it &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/create-class.png&quot; alt=&quot;create class&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-tableviewcontroller&quot;&gt;a) TableViewController&lt;/h4&gt;
+
+&lt;p&gt;In your &lt;code&gt;Storyboard&lt;/code&gt; and add a &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/add-table-view-controller.png&quot; alt=&quot;add table view controller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then grab the &lt;code&gt;Storyboard entry point&lt;/code&gt; (the arrow currently sitting next to your &lt;code&gt;View Controller&lt;/code&gt;), and drag it to your freshly created &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/entry-point.png&quot; alt=&quot;entry point&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click your &lt;code&gt;TableViewController&lt;/code&gt;, and in the inspector, set its class to be &lt;code&gt;TableViewController&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/class-inspector.png&quot; alt=&quot;class inspector&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;b-search-bar--results-cells&quot;&gt;b) Search bar &amp;amp; results cells&lt;/h4&gt;
+
+&lt;p&gt;Click the cell of our &lt;code&gt;TableViewController&lt;/code&gt;, and set its style to “Subtitle”.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/subtitle.png&quot; alt=&quot;subtitle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We’ll set our cell’s identifier as &lt;code&gt;postCell&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/identifier.png&quot; alt=&quot;cell identifier&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now look for “Search Bar” in the object library.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/search-bar-obj-lib.png&quot; alt=&quot;subtitle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Drag it and drop it on your view above your cell.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Mirmeca/assets/images/search-bar-on-view.png&quot; alt=&quot;subtitle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once you’re done, select it and create an outlet on your &lt;code&gt;TableViewController&lt;/code&gt; class called &lt;code&gt;postsSearchBar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Make sure your outlet is connected to the search bar on the view.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+class TableViewController: UITableViewController {
+    @IBOutlet weak var postsSearchBar: UISearchBar!
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;plugging-mirmeca-into-the-app&quot;&gt;3. Plugging Mirmeca into the app&lt;/h3&gt;
+&lt;p&gt;It’s now time for the fun stuff and start getting data into our app.&lt;/p&gt;
+
+&lt;p&gt;We have four simple steps ahead of us:&lt;br /&gt;
+  &lt;strong&gt;a)&lt;/strong&gt; Declaring our environnements in the AppDelegate&lt;br /&gt;
+  &lt;strong&gt;b)&lt;/strong&gt; Integrating our search bar&lt;br /&gt;
+  &lt;strong&gt;c)&lt;/strong&gt; Fetching our searched posts&lt;br /&gt;
+  &lt;strong&gt;d)&lt;/strong&gt; Displaying the posts&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;a-declaring-our-environnements-in-the-appdelegate&quot;&gt;a) Declaring our environnements in the AppDelegate&lt;/h4&gt;
+&lt;p&gt;For Mirmeca to work, it needs to be provided with your environnements at startup.&lt;/p&gt;
+
+&lt;p&gt;Easy, enough, the framework gives you a simple method to do just that. The trick is that it needs to be called from your &lt;code&gt;AppDelegate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Start by importing Mirmeca:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+import UIKit
+import Mirmeca
+&lt;/pre&gt;
+
+&lt;p&gt;Then in your &lt;code&gt;application didFinishLaunchingWithOptions&lt;/code&gt; method, create a dictionary with your envs (I only have one here) and call the &lt;code&gt;MirmecaEnv.sharedInstance.defineEnvs(envList: Dictionary&amp;lt;String, String&amp;gt;, defaultEnv: String)&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&amp;gt; Bool {
+    let envs = [&quot;dev&quot;: &quot;http://localhost:3000/wp-json&quot;]
+    // Our default env will simply be `dev`
+    MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: &quot;dev&quot;)
+
+    return true
+}
+&lt;/pre&gt;
+
+&lt;p&gt;So now every time Mirmeca will send a request to an API endpoint, it will use the URL of your default env, unless you specify a new one.
+Let’s try that!&lt;/p&gt;
+
+&lt;h4 id=&quot;b-integrating-our-search-bar&quot;&gt;b) Integrating our search bar&lt;/h4&gt;
+&lt;p&gt;Go to your &lt;code&gt;TableViewController&lt;/code&gt; class. Start by importing Mirmeca and create an array of &lt;code&gt;posts&lt;/code&gt;. You will also need to implement the &lt;code&gt;UISearchBarDelegate&lt;/code&gt; protocol.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+import UIKit
+import Mirmeca
+
+class TableViewController: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var postsSearchBar: UISearchBar!
+    var posts = [Post]()
+    
+...
+&lt;/pre&gt;
+
+&lt;p&gt;Now, we need to set the search bar’s delegate as &lt;code&gt;self&lt;/code&gt;.&lt;br /&gt;
+In our &lt;code&gt;viewDidLoad&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func viewDidLoad() {
+    super.viewDidLoad()
+    self.postsSearchBar.delegate = self
+}
+&lt;/pre&gt;
+
+&lt;h4 id=&quot;c-fetching-our-searched-posts&quot;&gt;c) Fetching our searched posts&lt;/h4&gt;
+
+&lt;p&gt;All good, now it’s time to trigger the search when the user hits the “Search” button. To do so we need to do 3 things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Get the string entered by the user and make it “query friendly”.&lt;/li&gt;
+  &lt;li&gt;Fetch our list of posts.&lt;/li&gt;
+  &lt;li&gt;Dismiss the keyboard.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All of that will happen in the &lt;code&gt;searchBarSearchButtonClicked&lt;/code&gt; method. It will call two custom methods that we’ll implement right now.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;formatStringForSearch&lt;/code&gt; to make the user’s string “http friendly”:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+func formatStringForSearch(string: String) -&amp;gt; String {
+    return string.stringByReplacingOccurrencesOfString(&quot; &quot;, withString: &quot;%20&quot;, options: NSStringCompareOptions.LiteralSearch, range: nil)
+}
+&lt;/pre&gt;
+
+&lt;p&gt;All this method does is find the white spaces and replace them by &lt;code&gt;%20&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;fetchPostsList&lt;/code&gt; to send the request and act upon its results:&lt;/p&gt;
+&lt;pre class=&quot;prettyprint&quot;&gt;
+PostsGateway(endpoint: &quot;posts?filter[s]=\(searchQuery)&quot;, env: nil).request({ (value: AnyObject?, error: NSError?) -&amp;gt; Void in
+    if (error != nil) {
+        println(error)
+    } else {
+        self.posts = value as! [Post]
+        self.tableView.reloadData()
+    }
+  })
+&lt;/pre&gt;
+
+&lt;p&gt;So what are we doing here? We’re using the &lt;code&gt;PostsGateway&lt;/code&gt; method provided by Mirmeca. We’re giving it an endpoint for the search that contains the query string entered by the user and formatted by us.&lt;/p&gt;
+
+&lt;p&gt;Then, we assign the value of our &lt;code&gt;[Post]&lt;/code&gt; array to whatever list of posts Mirmeca has returned to us and we reload the table view’s content to display these new posts.&lt;/p&gt;
+
+&lt;p&gt;So now, we can actually call the two methods we’ve created above. We’ll do this from the &lt;code&gt;searchBarSearchButtonClicked&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&quot;prettyprint&quot;&gt;
+func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    var searchQuery = self.formatStringForSearch(searchBar.text!)
+    self.fetchPostsList(searchQuery)
+    searchBar.endEditing(true)
+}
+&lt;/pre&gt;
+
+&lt;p&gt;We start by grabbing the text entered by the user in the search bar.&lt;/p&gt;
+
+&lt;p&gt;We format this string using the &lt;code&gt;formatStringForSearch&lt;/code&gt; we created earlier.&lt;/p&gt;
+
+&lt;p&gt;We’re then using this formatted string to call &lt;code&gt;fetchPostsList&lt;/code&gt;.&lt;br /&gt;
+Finally, we hide the search bar by calling &lt;code&gt;searchBar.endEditing(true)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;It’s that simple!&lt;/p&gt;
+
+&lt;h4 id=&quot;d-displaying-the-posts&quot;&gt;d) Displaying the posts&lt;/h4&gt;
+&lt;p&gt;This bit is fairly easy, it takes 3 short steps.&lt;/p&gt;
+
+&lt;p&gt;First, we need to set the number of sections in our table view, and we only need one here:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func numberOfSectionsInTableView(tableView: UITableView) -&amp;gt; Int {
+    return 1
+}
+&lt;/pre&gt;
+
+&lt;p&gt;Second, we need to set the number of rows in our section. It will correspond to the number of items we have in the posts array:&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -&amp;gt; Int {
+    return self.posts.count
+}
+&lt;/pre&gt;
+
+&lt;p&gt;And last but not least, we need to configure our cell to display our content.&lt;/p&gt;
+
+&lt;p&gt;Let’s configure our cells’ &lt;code&gt;textLabel&lt;/code&gt; and &lt;code&gt;detailTextLabel&lt;/code&gt; with our post title and author’s first name respectively.&lt;/p&gt;
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -&amp;gt; UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier(&quot;postCell&quot;, forIndexPath: indexPath) as! UITableViewCell
+    
+    // Get the post corresponding to the row
+    let post = self.posts[indexPath.row]
+    
+    cell.textLabel?.text = post.title!
+    cell.detailTextLabel?.text = post.author!.firstName
+    return cell
+}
+&lt;/pre&gt;
+
+&lt;p&gt;As you can see in the code above, populating our row is as simple as accessing properties on the &lt;code&gt;Post&lt;/code&gt; object Mirmeca is giving us.&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;So there you have it, a 10 minutes Mirmeca app that lets you search your posts!&lt;/p&gt;
+
+&lt;p&gt;We’ve implemented our search feature in our app in a matter of minutes, without having to write the underlying code that would normally have been required.&lt;/p&gt;
+
+&lt;p&gt;Need help with anything? Please get in touch solal.fitoussi [at] gmail [dot] com&lt;/p&gt;
+</description>
+        <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
+        <link>/Mirmeca/tutorial/search-feature</link>
+        <guid isPermaLink="true">/Mirmeca/tutorial/search-feature</guid>
+        
+        
+        <category>tutorial</category>
+        
+      </item>
     
       <item>
         <title>Models</title>
@@ -355,9 +608,11 @@ override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath:
 
 </description>
         <pubDate>Sun, 09 Aug 2015 02:37:18 +1000</pubDate>
-        <link>/Mirmeca/getting-started</link>
-        <guid isPermaLink="true">/Mirmeca/getting-started</guid>
+        <link>/Mirmeca/tutorial/getting-started</link>
+        <guid isPermaLink="true">/Mirmeca/tutorial/getting-started</guid>
         
+        
+        <category>tutorial</category>
         
       </item>
     
