@@ -45,7 +45,7 @@ public class Post: Mappable {
         }
     }
     
-    public class func newInstance() -> Mappable {
+    public class func newInstance(map: Map) -> Mappable? {
         return Post()
     }
     

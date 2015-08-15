@@ -37,7 +37,7 @@ public class FeaturedImage: Mappable {
     public var isImage: Bool?
     public var attachmentMeta: AttachmentMeta?
     
-    public class func newInstance() -> Mappable {
+    public class func newInstance(map: Map) -> Mappable? {
         return FeaturedImage()
     }
     

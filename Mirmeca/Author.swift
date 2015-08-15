@@ -22,7 +22,7 @@ public class Author: Mappable {
     public var description: String?
     public var registered: String?
     
-    public class func newInstance() -> Mappable {
+    public class func newInstance(map: Map) -> Mappable? {
         return Author()
     }
     

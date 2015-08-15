@@ -17,7 +17,7 @@ public class AttachmentMeta: Mappable {
     public var medium: AttachmentSize?
     public var large: AttachmentSize?
     
-    public class func newInstance() -> Mappable {
+    public class func newInstance(map: Map) -> Mappable? {
         return AttachmentMeta()
     }
     

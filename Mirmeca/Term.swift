@@ -19,7 +19,7 @@ public class Term: Mappable {
     public var count: Int?
     public var link: String?
     
-    public class func newInstance() -> Mappable {
+    public class func newInstance(map: Map) -> Mappable? {
         return Term()
     }
     
