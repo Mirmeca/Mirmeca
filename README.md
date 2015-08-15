@@ -1,3 +1,4 @@
+[![CocoaPods](https://img.shields.io/cocoapods/v/Mirmeca.svg)](https://github.com/Mirmeca/Mirmeca/)
 [![Build Status](https://travis-ci.org/Mirmeca/Mirmeca.svg)](https://travis-ci.org/Mirmeca/Mirmeca)
 
 # Mirmeca
@@ -126,6 +127,15 @@ CommentsGateway(endpoint: "posts/40627/comments", env: nil).request({ (value: An
 
 <a name="installation"></a>
 #Installation
+You can use Cocoapods to install Mirmeca.
+
+```swift
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'Mirmeca', '~> 0.04'
+```
 
 <a name="contributing"></a>
 #Contributing
