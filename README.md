@@ -141,4 +141,4 @@ pod 'Mirmeca', '~> 0.04'
 #Contributing
 
 #Credits
-**Icon**: Ant by Gilad Fried from the Noun Project
+**Icon**: Ant by [Gilad Fried](http://www.gldfrd.com/) from the Noun Project
