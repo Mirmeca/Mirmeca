@@ -139,3 +139,6 @@ pod 'Mirmeca', '~> 0.04'
 
 <a name="contributing"></a>
 #Contributing
+
+#Credits
+**Icon**: Ant by Gilad Fried from the Noun Project
