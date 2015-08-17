@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
+      <h4>Get your latest posts</h4>
+<pre class="prettyprint">
+PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  if (error != nil) {
+    println(error)
+  } else {
+    posts = value as! [Post]
+  }
+})
+</pre>
+    </div>
+
+    <div class="col-md-12">
+      <h4>Display some of the post's infos</h4>
+<pre class="prettyprint">
+titleLabel.text = post.title!
+subTitleLabel.text = post.author!.firstName!
+</pre>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
+      <h4>Get a post's comments</h4>
+<pre class="prettyprint">
+CommentsGateway(endpoint: "posts/\(post.id!)/comments", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
+  if (error != nil) {
+    println(error)
+  } else {
+    comments = value as! [Comment]
+  }
+})
+</pre>
+    </div>
+
+    <div class="col-md-12">
+      <h4>Display a comment</h4>
+<pre class="prettyprint">
+nameLabel.text = comment.author!.name!
+contentLabel.text = comment.content!
+</pre>
+    </div>
+  </div>
+</div>

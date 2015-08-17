@@ -2,7 +2,6 @@
 layout: page
 title:  "Gateways"
 subTitle: "List of available gateways with their properties and methods."
-categories: quick-doc
 date:   2015-08-08 16:37:18
 image: "http://placehold.it/600x300/00a8a8/fff"
 ---

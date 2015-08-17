@@ -1,18 +1,11 @@
-<div class="container">
-  <div class="row">
-
-  {% for post in site.categories.tutorial %}
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img src="http://placehold.it/600x300/00a8a8/fff" alt="tutorial-image">
-        <div class="caption">
-          <h4>{{ post.title }}</h4>
-          <p>{{ post.subTitle }}</p>
-          <p><a href="/Mirmeca/{{ post.url }}" class="btn btn-default" role="button">Learn Now</a></p>
-        </div>
-      </div>
+{% for post in site.categories.tutorial %}
+<div class="col-md-6 col-sm-6">
+  <div class="thumbnail">
+    <div class="caption">
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.subTitle }}</p>
+      <p><a href="/Mirmeca/{{ post.url }}" class="btn btn-default" role="button">Learn Now</a></p>
     </div>
-  {% endfor %}
-
   </div>
 </div>
+{% endfor %}
