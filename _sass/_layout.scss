@@ -10,6 +10,7 @@
   .right { float: right; }
 
   a {
+    padding-top: 2rem;
     color: $white;
     &:hover, &:visited { @extend a; }
     &.secondary {
@@ -19,6 +20,19 @@
       &:hover { color: $white; }
     }
   }
+
+  .icon-ant {
+    float: left;
+    margin-top: -1.5rem;
+    font-size: 5rem;
+    color: $white;
+  }
+
+  @media (max-width: 768px) {
+    width: initial;
+    .left, .right { float: none; }
+  }
+
 }
 
 .jumbotron {
@@ -34,6 +48,8 @@
       background-color: $white;
       color: $blue-dark;
     }
+
+    @media (max-width: 768px) { width: 100%; }
   }
 
   &.footer {

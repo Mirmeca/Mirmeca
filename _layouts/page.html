@@ -1,25 +1,22 @@
 ---
 layout: default
 ---
-<div class="post">
 
-  <div class="row">
-    <div class="jumbotron">
-      <div class="container">
-        <div class="col-md-8 col-md-offset-2 text-center">
-          <h1>{{ page.title }}</h1>
-          <p>{{ page.subTitle }}</p>
-        </div>
+<div class="row">
+  <div class="jumbotron">
+    <div class="container-fluid">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h1>{{ page.title }}</h1>
+        <p>{{ page.subTitle }}</p>
       </div>
     </div>
   </div>
+</div>
 
-  <article class="post-content">
-    <div class="row">  
-      <div class="col-md-8 col-md-offset-2">
-        {{ content }}
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+      <article class="post-content">{{ content }}</article>
     </div>
-  </article>
-
+  </div>
 </div>

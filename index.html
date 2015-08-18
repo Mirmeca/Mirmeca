@@ -2,65 +2,65 @@
 layout: default
 ---
 
-<div class="home">
+<div class="jumbotron">
+  <div class="container-fluid">
 
-  <div class="row">
-    <div class="jumbotron">
-      <div class="container">
-        <div class="col-md-8 col-md-offset-2 text-center">
-          <h1>Mirmeca</h1>
-          <p>
-            Build apps on top of the WordPress API with Swift.<br>
-            Mirmeca saves you days of development time and hundreds of lines of code,<br>so you can focus on making your app truly unique.
-          </p>
-          <br>
-          <h3>Install Mirmeca</h3>
-          <p>
-            <code>pod 'Mirmeca', '~> 0.04'</code>
-          </p>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <h1>Mirmeca</h1>
+        <p>Build apps on top of the WordPress API with Swift.<br>
+          Mirmeca saves you days of development time and hundreds of lines of code.</p>
+        <a class="btn btn-default btn-lg" href="/Mirmeca/install/" role="button">Install with Cocoapods</a>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center">
+        <p>
+          {% include mail-signup.html %}
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <h1>Why use Mirmeca?</h1><br>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-6 col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>Easy to use</h4>
+          <p>Mirmeca lets you query for content on your WordPress backend 3 lines of code. Mirmeca also gives you simple models to manipulate the data retrieved. The documentation lists all the attributes for each model.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+      <div class="thumbnail">
+        <div class="caption">
+          <h4>Cut dev time</h4>
+          <p>Mirmeca packs everything you need to be ready in minutes. From Gateways to retrieve any type of content from your WordPress backend to Models to manage this content. Be ready in minutes, not days!</p>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center">
-      <h1>Why use Mirmeca?</h1><br>
-    </div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 text-center">
+    <h1>Some of the things you can do with Mirmeca</h1><br>
   </div>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="col-md-6 col-sm-6">
-        <div class="thumbnail">
-          <div class="caption">
-            <h4>Easy to use</h4>
-            <p>Mirmeca lets you query for content on your WordPress backend 3 lines of code. Mirmeca also gives you simple models to manipulate the data retrieved. The documentation lists all the attributes for each model.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-6">
-        <div class="thumbnail">
-          <div class="caption">
-            <h4>Cut dev time</h4>
-            <p>Mirmeca packs everything you need to be ready in minutes. From Gateways to retrieve any type of content from your WordPress backend to Models to manage this content. Be ready in minutes, not days!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center">
-      <h1>Some of the things you can do with Mirmeca</h1><br>
-    </div>
-  </div>
-  {% include code-examples.html %}
+</div>
+{% include code-examples.html %}
 
 
-  <div class="row">
-    {% include start-footer.html %}
-  </div>
-
+<div class="row">
+  {% include start-footer.html %}
 </div>
