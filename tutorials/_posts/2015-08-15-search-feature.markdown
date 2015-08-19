@@ -3,7 +3,7 @@ layout:     page
 title:      "Building a Search Feature"
 date:       2015-08-08 16:37:18
 subTitle:   "This tutorial will walk you through how to build a search feature for your app with Mirmeca."
-image: "http://placehold.it/600x300/00a8a8/fff"
+image: "/Mirmeca/assets/images/icons/search.png"
 ---
 
 The aim of this tutorial is to show you how you can build a search feature for your app on top of your WordPress backend using Mirmeca.

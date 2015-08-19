@@ -3,7 +3,7 @@ layout: page
 title:  "Models"
 subTitle: "List of available models with their properties and methods."
 date:   2015-08-08 16:37:18
-image: "http://placehold.it/600x300/00a8a8/fff"
+image: "/Mirmeca/assets/images/icons/models.png"
 ---
 
 ## Introduction

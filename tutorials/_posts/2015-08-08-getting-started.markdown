@@ -2,8 +2,8 @@
 layout: page
 title:  "Getting Started"
 date:   2015-08-08 16:37:18
-subTitle: "This guide will walk you through how Mirmeca works."
-image: "http://placehold.it/600x300/00a8a8/fff"
+subTitle: "This guide will walk you through how Mirmeca works. Start building now!"
+image: "/Mirmeca/assets/images/icons/start.png"
 ---
 
 The aim of this Getting Started Guide is to show you how you can build an app on top of your WordPress backend in just a few minutes with Mirmeca.
