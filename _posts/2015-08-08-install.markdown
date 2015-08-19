@@ -8,7 +8,7 @@ date:   2015-08-08 16:37:18
 ## Cocoapods
 Mirmeca can be installed through Cocoapods.
 
-To do so, your `Podfile` should look something like this:
+#### `Podfile`
 
 <pre class="prettyprint">
 source 'https://github.com/CocoaPods/Specs.git'
@@ -17,3 +17,7 @@ use_frameworks!
 
 pod 'Mirmeca', '~> 0.04'
 </pre>
+
+## Getting started
+
+After installing, you should be all set to build your first app. Learn how in the [Getting Started Guide](/Mirmeca/tutorials/getting-started/).
