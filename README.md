@@ -1,6 +1,8 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/Mirmeca.svg)](https://github.com/Mirmeca/Mirmeca/)
 [![Build Status](https://travis-ci.org/Mirmeca/Mirmeca.svg)](https://travis-ci.org/Mirmeca/Mirmeca)
 
+![Mirmeca](/mirmeca.png)]
+
 # Mirmeca
 Mirmeca is a framework written in Swift that makes it easy for you to build apps on top of the WordPress API.
 
