@@ -257,4 +257,4 @@ So there you have it, a 10 minutes Mirmeca app that lets you search your posts!
 
 We've implemented our search feature in our app in a matter of minutes, without having to write the underlying code that would normally have been required.
 
-Need help with anything? Please get in touch solal.fitoussi [at] gmail [dot] com
+Need help with anything? Please get in touch solal@mirmeca.org

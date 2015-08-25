@@ -200,5 +200,5 @@ We've loaded our latest posts in our app in a matter of minutes, without having 
 
 But Mirmeca allows you to do much much more. Things like building a search functionality for your app, navigate by category, display posts by a certain tag etc...
 
-Need help with anything? Please get in touch solal.fitoussi [at] gmail [dot] com
+Need help with anything? Please get in touch solal@mirmeca.org
 
