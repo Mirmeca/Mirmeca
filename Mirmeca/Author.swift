@@ -22,9 +22,7 @@ public class Author: Mappable {
     public var description: String?
     public var registered: String?
     
-    public class func newInstance(map: Map) -> Mappable? {
-        return Author()
-    }
+    required public init?(_ map: Map) {}
     
     public func mapping(map: Map) {
         id          <- map["ID"]

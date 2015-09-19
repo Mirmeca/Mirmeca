@@ -16,9 +16,7 @@ public class AttachmentSize: Mappable {
     public var mimeType: String?
     public var url: String?
     
-    public class func newInstance(map: Map) -> Mappable? {
-        return AttachmentSize()
-    }
+    required public init?(_ map: Map) {}
     
     public func mapping(map: Map) {
         width    <- map["width"]

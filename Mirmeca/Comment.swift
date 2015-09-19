@@ -21,9 +21,7 @@ public class Comment: Mappable {
     public var dateTz: String?
     public var dateGmt: String?
     
-    public class func newInstance(map: Map) -> Mappable? {
-        return Comment()
-    }
+    required public init?(_ map: Map) {}
     
     public func mapping(map: Map) {
         id      <- map["ID"]

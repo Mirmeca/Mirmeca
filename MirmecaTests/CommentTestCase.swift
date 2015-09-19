@@ -14,13 +14,13 @@ class CommentTestCase: XCTestCase {
     
     func comment() -> Comment {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("comment", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<Comment>().map(json)!
     }
     
     func author() -> Author {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("author", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<Author>().map(json)!
     }
     

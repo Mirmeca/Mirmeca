@@ -14,7 +14,7 @@ class AttachmentMetaTestCase: XCTestCase {
     
     func attachmentMeta() -> AttachmentMeta {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("attachmentMeta", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<AttachmentMeta>().map(json)!
     }
     

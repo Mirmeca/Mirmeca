@@ -19,19 +19,15 @@ public struct PostsGateway: GatewayProtocol {
     }
     
     public func request(completion: (value: AnyObject?, error: NSError?) -> Void) {
-        Alamofire.request(.GET, self.url!).responseJSON { (_, _, JSON, _) in
+        Alamofire.request(.GET, self.url!).responseJSON { _, _, result in
             var value: [Post]?
             var error: NSError?
             
-            if (JSON != nil) {
-                if (JSON![0]["code"]! != nil) {
-                    error = NSError(domain: self.url!, code: 303, userInfo: nil)
+            if (result.isSuccess) {
+                if let mappedObject = self.parseResponse(result.value!) {
+                    value = mappedObject
                 } else {
-                    if let mappedObject = self.parseResponse(JSON!) {
-                        value = mappedObject
-                    } else {
-                        error = NSError(domain: self.url!, code: 303, userInfo: nil)
-                    }
+                    error = NSError(domain: self.url!, code: 302, userInfo: nil)
                 }
             } else {
                 error = NSError(domain: self.url!, code: 302, userInfo: nil)

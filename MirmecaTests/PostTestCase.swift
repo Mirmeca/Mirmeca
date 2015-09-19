@@ -14,7 +14,7 @@ class PostTestCase: XCTestCase {
     
     func post() -> Post {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("post", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<Post>().map(json)!
     }
     

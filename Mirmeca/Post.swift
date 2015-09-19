@@ -45,9 +45,7 @@ public class Post: Mappable {
         }
     }
     
-    public class func newInstance(map: Map) -> Mappable? {
-        return Post()
-    }
+    required public init?(_ map: Map) {}
     
     public func mapping(map: Map) {
         id             <- map["ID"]
