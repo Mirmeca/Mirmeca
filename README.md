@@ -129,7 +129,7 @@ CommentsGateway(endpoint: "posts/40627/comments", env: nil).request({ (value: An
 
 <a name="installation"></a>
 #Installation
-You can use Cocoapods to install Mirmeca.
+You can use CocoaPods to install Mirmeca.
 
 ```swift
 source 'https://github.com/CocoaPods/Specs.git'
