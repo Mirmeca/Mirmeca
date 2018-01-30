@@ -15,7 +15,7 @@ Mirmeca is a framework written in Swift that makes it easy for you to build apps
 - [Contributing](#contributing)
 
 <a name="features"></a>
-#Features
+# Features
 - Out of the box models for WordPress **types** (`Post`, `FeaturedImage`,  `Term`, `Comment`, `Author`, etc...).
 - Built in gateways to retrieve collections of types or single items from your WordPress backend (`PostsGateway`, `CommentGateway`, etc...).
 - Start displaying content in under 5 minutes and less than 5 lines of code.
@@ -30,14 +30,14 @@ Gateways let you send requests for content to WordPress in just a few lines of c
 
 They output **types** (`Post`, `Comment`, `Author`...) or arrays or types.
 
-###Declare your environnements in your AppDelegate
+### Declare your environnements in your AppDelegate
 
 ```swift
 let envs = ["dev": "http://localhost:3000/wp-json", "staging": "http://staging.example.com"]
 MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
 ```
 
-###Send a request to get the latest posts in your ViewController
+### Send a request to get the latest posts in your ViewController
 ```swift
 // Pass the "posts" endpoint & use the default env
 PostsGateway(endpoint: "posts", env: nil).request({})
@@ -59,14 +59,14 @@ PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: N
 ```
 
 <a name="use-cases"></a>
-#Use cases
+# Use cases
 Here are three of the numerous things **Mirmeca** helps you accomplish.
 
-###Types & Gateways
+### Types & Gateways
 - Check the list available **types** [here](http://mirmeca.github.io/Mirmeca/contribute/models/).
 - Check the list available **Gateways** [here](http://mirmeca.github.io/Mirmeca/contribute/gateways/).
 
-###Search for posts
+### Search for posts
 - Endpoint: `posts?filter[s]=`
 - Gateway: `PostsGateway`
 - Code:
@@ -87,7 +87,7 @@ PostsGateway(endpoint: "posts?filter[s]=\(query)", env: nil).request({ (value: A
 })
 ```
 
-###List your site's categories
+### List your site's categories
 - Endpoint: `taxonomies/category/terms`
 - Gateway: `TermsGateway`
 - Code:
@@ -107,7 +107,7 @@ TermsGateway(endpoint: "taxonomies/category/terms", env: nil).request({ (value: 
 })
 ```
 
-###Retrieve comments for a post
+### Retrieve comments for a post
 - Endpoint: `posts/40627/comments`
 - Gateway: `CommentsGateway`
 - Code:
@@ -128,7 +128,7 @@ CommentsGateway(endpoint: "posts/40627/comments", env: nil).request({ (value: An
 ```
 
 <a name="installation"></a>
-#Installation
+# Installation
 You can use CocoaPods to install Mirmeca.
 
 ```swift
@@ -140,7 +140,7 @@ pod 'Mirmeca', '~> 0.04'
 ```
 
 <a name="contributing"></a>
-#Contributing
+# Contributing
 
-#Credits
+# Credits
 **Icon**: Ant by [Gilad Fried](http://www.gldfrd.com/) from the Noun Project
