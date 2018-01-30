@@ -21,7 +21,7 @@ Mirmeca is a framework written in Swift that makes it easy for you to build apps
 - Start displaying content in under 5 minutes and less than 5 lines of code.
 
 <a name="getting-started"></a>
-#Getting started
+# Getting started
 To get started you will need a WordPress installion running the [**WP API**](https://wordpress.org/plugins/json-rest-api/) plugin.
 
 Interaction with your WordPress backend is made through **Gateways** (`PostsGateway`, `TermGateway`...).
@@ -42,7 +42,7 @@ MirmecaEnv.sharedInstance.defineEnvs(envs, defaultEnv: "dev")
 // Pass the "posts" endpoint & use the default env
 PostsGateway(endpoint: "posts", env: nil).request({})
 ```
-###Print the posts by passing a closure to the request method
+### Print the posts by passing a closure to the request method
 ```swift
 PostsGateway(endpoint: "posts", env: nil).request({ (value: AnyObject?, error: NSError?) -> Void in
   // Make sure that something was returned
