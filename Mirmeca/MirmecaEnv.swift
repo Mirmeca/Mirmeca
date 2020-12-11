@@ -22,7 +22,7 @@ public class MirmecaEnv {
         if (envList[defaultEnv] != nil) {
             self.defaultEnv = envList[defaultEnv]
         } else {
-            println(self.warning)
+            print(self.warning)
             self.defaultEnv = ""
         }
     }
@@ -34,14 +34,14 @@ public class MirmecaEnv {
                 if (self.envList![env!] != nil) {
                     myEnv = self.envList![env!]!
                 } else {
-                    println(self.warning)
+                    print(self.warning)
                     return ""
                 }
             }
             
             return myEnv
         } else {
-            println(self.warning)
+            print(self.warning)
             return ""
         }
     }

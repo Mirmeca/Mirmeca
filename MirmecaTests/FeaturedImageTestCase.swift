@@ -14,7 +14,7 @@ class FeaturedImageTestCase: XCTestCase {
     
     func featuredImage() -> FeaturedImage {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("featuredImage", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<FeaturedImage>().map(json)!
     }
     

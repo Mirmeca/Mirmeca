@@ -19,15 +19,15 @@ public struct CommentGateway: GatewayProtocol {
     }
     
     public func request(completion: (value: AnyObject?, error: NSError?) -> Void) {
-        Alamofire.request(.GET, self.url!).responseJSON { (_, _, JSON, _) in
+        Alamofire.request(.GET, self.url!).responseJSON { _, _, result in
             var value: Comment?
             var error: NSError?
             
-            if (JSON != nil) {
-                if let mappedObject = Mapper<Comment>().map(JSON) {
+            if (result.isSuccess) {
+                if let mappedObject = Mapper<Comment>().map(result.value!) {
                     value = mappedObject
                 } else {
-                    error = NSError(domain: self.url!, code: 303, userInfo: nil)
+                    error = NSError(domain: self.url!, code: 302, userInfo: nil)
                 }
             } else {
                 error = NSError(domain: self.url!, code: 302, userInfo: nil)

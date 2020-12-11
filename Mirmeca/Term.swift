@@ -19,9 +19,7 @@ public class Term: Mappable {
     public var count: Int?
     public var link: String?
     
-    public class func newInstance(map: Map) -> Mappable? {
-        return Term()
-    }
+    required public init?(_ map: Map) {}
     
     public func mapping(map: Map) {
         id          <- map["ID"]

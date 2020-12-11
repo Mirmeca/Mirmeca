@@ -3,11 +3,11 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'Mirmeca' do
-  pod 'Alamofire', '1.3.1'
-  pod 'ObjectMapper', '0.15'
+  pod 'Alamofire', '2.0'
+  pod 'ObjectMapper', '0.17'
 end
 
 target 'MirmecaTests' do
-  pod 'Alamofire', '1.3.1'
-  pod 'ObjectMapper', '0.15'
+  pod 'Alamofire', '2.0'
+  pod 'ObjectMapper', '0.17'
 end

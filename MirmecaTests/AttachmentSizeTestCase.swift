@@ -14,7 +14,7 @@ class AttachmentSizeTestCase: XCTestCase {
     
     func attachmentSize() -> AttachmentSize {
         let path = NSBundle(identifier: "com.Mirmeca")!.pathForResource("attachmentSize", ofType: "json")
-        let json = NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil)!
+        let json = try! NSString(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
         return Mapper<AttachmentSize>().map(json)!
     }
 
